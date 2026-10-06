@@ -41,53 +41,66 @@
   .btn{position:fixed;top:24px;right:24px;background:linear-gradient(120deg,#8b5cf6,#22d3ee);color:#fff;border:none;cursor:pointer;
     font-weight:700;font-size:.9rem;padding:11px 20px;border-radius:12px;box-shadow:0 10px 26px rgba(139,92,246,.4)}
   .btn:hover{transform:translateY(-2px)}
+  .langsw{position:fixed;top:24px;left:24px;display:flex;gap:6px;background:#fff;border-radius:12px;
+    box-shadow:0 10px 26px rgba(20,25,50,.15);padding:6px;z-index:10}
+  .langsw button{border:1px solid #e6e8f2;background:#f0f2fb;color:#5b6280;font-weight:700;font-size:.8rem;
+    padding:7px 11px;border-radius:8px;cursor:pointer;font-family:inherit}
+  .langsw button.on{background:linear-gradient(120deg,#8b5cf6,#22d3ee);color:#fff;border-color:transparent}
   @media print{
     body{background:#fff;padding:0}
     .sheet{box-shadow:none;border-radius:0}
-    .btn{display:none}
+    .btn,.langsw{display:none}
     .top{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   }
-  @media (max-width:640px){.grid{grid-template-columns:1fr}.btn{position:static;display:block;margin:0 auto 16px;width:80%;text-align:center}}
+  @media (max-width:640px){
+    .grid{grid-template-columns:1fr}
+    .btn{position:static;display:block;margin:0 auto 16px;width:80%;text-align:center}
+    .langsw{position:static;margin:0 auto 16px;width:max-content}
+  }
 </style>
 </head>
 <body>
-<button class="btn" onclick="window.print()">🖨️ Chop etish / PDF</button>
+<button class="btn" id="printBtn" data-i18n="btn.print">Chop etish / PDF</button>
+<div class="langsw" role="group" aria-label="Language">
+  <button type="button" data-lang="en">EN</button>
+  <button type="button" data-lang="uz" class="on">UZ</button>
+  <button type="button" data-lang="ru">RU</button>
+</div>
 
 <div class="sheet">
   <div class="top">
     <h1>Abdulaziz Abduahadov</h1>
-    <div class="role">Full-Stack Developer | Java | Telegram Bot</div>
+    <div class="role" data-i18n="role">Full-Stack Developer | Java | Telegram Bot</div>
     <div class="contact">
       <span>📧 sevaraximmotova702@gmail.com</span>
       <span>✈️ @Laziz_Abduahadov</span>
       <span>🐙 github.com/Laziz730</span>
-      <span>📍 Samarqand, Oqdaryo</span>
+      <span>📍 <span data-i18n="loc">Samarqand, Oqdaryo</span></span>
     </div>
   </div>
 
   <div class="grid">
     <div class="side">
-      <h2>Ma'lumot</h2>
-      <p>21.05.2015 da tug'ilgan. 5 yoshdan kompyuter olami bilan tanish. Full-Stack yo'nalishini to'liq tugatgan, Java dasturlashni chuqur o'rganayotgan yosh dasturchi.</p>
+      <h2 data-i18n="h.profile">Ma'lumot</h2>
+      <p data-i18n="p.profile">21.05.2015 da tug'ilgan. 5 yoshdan kompyuter olami bilan tanish. Full-Stack yo'nalishini to'liq tugatgan, Java dasturlashni chuqur o'rganayotgan yosh dasturchi.</p>
 
-      <h2>Mahoratlar</h2>
+      <h2 data-i18n="h.skills">Mahoratlar</h2>
       <ul>
         <li><span>Frontend</span><span class="pts"><b><i style="width:92%"></i></b></span></li>
         <li><span>Backend</span><span class="pts"><b><i style="width:85%"></i></b></span></li>
         <li><span>Java</span><span class="pts"><b><i style="width:80%"></i></b></span></li>
-        <li><span>Database</span><span class="pts"><b><i style="width:82%"></i></b></span></li>
+        <li><span data-i18n="sk.db">Database</span><span class="pts"><b><i style="width:82%"></i></b></span></li>
         <li><span>API</span><span class="pts"><b><i style="width:78%"></i></b></span></li>
-        <li><span>PC savodxonlik</span><span class="pts"><b><i style="width:95%"></i></b></span></li>
       </ul>
 
-      <h2>Tillar</h2>
+      <h2 data-i18n="h.langs">Tillar</h2>
       <div class="langs" style="margin-top:6px">
-        <span>O'zbek (ona)</span>
-        <span>Rus</span>
-        <span>English</span>
+        <span data-i18n="l.uz">O'zbek (ona tili)</span>
+        <span data-i18n="l.ru">Rus (erkin)</span>
+        <span data-i18n="l.en">Ingliz (o'rta)</span>
       </div>
 
-      <h2>Dasturlash tillari</h2>
+      <h2 data-i18n="h.prog">Dasturlash tillari</h2>
       <div class="langs" style="margin-top:6px">
         <span>HTML/CSS</span>
         <span>JavaScript</span>
@@ -110,7 +123,7 @@
         <span>Bash</span>
       </div>
 
-      <h2>Texnologiyalar va frameworklar</h2>
+      <h2 data-i18n="h.tech">Texnologiyalar va frameworklar</h2>
       <div class="langs" style="margin-top:6px">
         <span>SQL</span>
         <span>MySQL</span>
@@ -137,45 +150,150 @@
     </div>
 
     <div class="main">
-      <h2>Tajriba</h2>
+      <h2 data-i18n="h.exp">Tajriba</h2>
       <div class="row">
-        <span class="date">2026 — hozirgacha</span>
-        <h3>Java dasturlashni chuqurlashtirish</h3>
-        <p>Java tilida mustahkam bilimni davom ettiraman, yangi loyihalar ustida ishlayman.</p>
+        <span class="date" data-i18n="e1.d">2026 — hozirgacha</span>
+        <h3 data-i18n="e1.t">Java dasturlashni chuqurlashtirish</h3>
+        <p data-i18n="e1.p">Java tilida mustahkam bilimni davom ettiraman, yangi loyihalar ustida ishlayman.</p>
       </div>
       <div class="row">
         <span class="date">2025</span>
-        <h3>Full-Stack kurs — to'liq tugatilgan</h3>
-        <p>Frontend, Backend, Database va API yo'nalishlari bo'yicha to'liq kursni tamomladim.</p>
+        <h3 data-i18n="e2.t">Full-Stack kurs — to'liq tugatilgan</h3>
+        <p data-i18n="e2.p">Frontend, Backend, Database va API yo'nalishlari bo'yicha to'liq kursni tamomladim.</p>
       </div>
       <div class="row">
         <span class="date">2020</span>
-        <h3>Kompyuter va texnologiyalar bilan tanishuv</h3>
-        <p>5 yoshdan boshlab otam sababli IT olamiga qiziqib qoldim.</p>
+        <h3 data-i18n="e3.t">Kompyuter va texnologiyalar bilan tanishuv</h3>
+        <p data-i18n="e3.p">5 yoshdan boshlab otam sababli IT olamiga qiziqib qoldim.</p>
       </div>
 
-      <h2>Loyihalar</h2>
+      <h2 data-i18n="h.proj">Loyihalar</h2>
       <div class="row">
         <h3>3D O'YIN 🎮</h3>
-        <p>JavaScript asosidagi 3D o'yin — github.com/Laziz730/3D-O-YIN</p>
+        <p><span data-i18n="pr1.p">JavaScript asosidagi 3D o'yin</span> — github.com/Laziz730/3D-O-YIN</p>
       </div>
       <div class="row">
         <h3>Open Budget 💰</h3>
-        <p>Byudjet simulyatori — github.com/Laziz730/open-budget-simulotor</p>
+        <p><span data-i18n="pr2.p">Byudjet simulyatori</span> — github.com/Laziz730/open-budget-simulotor</p>
       </div>
       <div class="row">
         <h3>Senga U8 AI 🤖</h3>
-        <p>AI yordamchi — github.com/Laziz730/senga_u8_ai</p>
+        <p><span data-i18n="pr3.p">AI yordamchi</span> — github.com/Laziz730/senga_u8_ai</p>
       </div>
 
-      <h2>Sertifikatlar</h2>
-      <p>Full-Stack va dasturlash yo'nalishlari bo'yicha 5 ta sertifikat mavjud (portfolio sahifasida ko'rish mumkin).</p>
+      <h2 data-i18n="h.cert">Sertifikatlar</h2>
+      <p data-i18n="p.cert">Dasturlash yo'nalishlari bo'yicha 3 ta sertifikat mavjud (portfolio sahifasida ko'rish mumkin).</p>
     </div>
   </div>
 </div>
 
 <script>
-  document.title = "Abdulaziz Abduahadov — CV";
+(function () {
+  var L = {
+    uz: {
+      "btn.print":"Chop etish / PDF",
+      "role":"Full-Stack Developer | Java | Telegram Bot",
+      "loc":"Samarqand, Oqdaryo",
+      "h.profile":"Ma'lumot",
+      "p.profile":"21.05.2015 da tug'ilgan. 5 yoshdan kompyuter olami bilan tanish. Full-Stack yo'nalishini to'liq tugatgan, Java dasturlashni chuqur o'rganayotgan yosh dasturchi.",
+      "h.skills":"Mahoratlar","sk.db":"Database",
+      "h.langs":"Tillar","l.uz":"O'zbek (ona tili)","l.ru":"Rus (erkin)","l.en":"Ingliz (o'rta)",
+      "h.prog":"Dasturlash tillari","h.tech":"Texnologiyalar va frameworklar",
+      "h.exp":"Tajriba",
+      "e1.d":"2026 — hozirgacha","e1.t":"Java dasturlashni chuqurlashtirish","e1.p":"Java tilida mustahkam bilimni davom ettiraman, yangi loyihalar ustida ishlayman.",
+      "e2.t":"Full-Stack kurs — to'liq tugatilgan","e2.p":"Frontend, Backend, Database va API yo'nalishlari bo'yicha to'liq kursni tamomladim.",
+      "e3.t":"Kompyuter va texnologiyalar bilan tanishuv","e3.p":"5 yoshdan boshlab otam sababli IT olamiga qiziqib qoldim.",
+      "h.proj":"Loyihalar","pr1.p":"JavaScript asosidagi 3D o'yin","pr2.p":"Byudjet simulyatori","pr3.p":"AI yordamchi",
+      "h.cert":"Sertifikatlar","p.cert":"Dasturlash yo'nalishlari bo'yicha 3 ta sertifikat mavjud (portfolio sahifasida ko'rish mumkin)."
+    },
+    en: {
+      "btn.print":"Print / Save as PDF",
+      "role":"Full-Stack Developer | Java | Telegram Bot",
+      "loc":"Samarkand, Oqdaryo district",
+      "h.profile":"Profile",
+      "p.profile":"Born on 21 May 2015. I have been around computers since the age of five. I completed a full Full-Stack program and am currently going deeper into Java.",
+      "h.skills":"Skills","sk.db":"Databases",
+      "h.langs":"Languages","l.uz":"Uzbek (native)","l.ru":"Russian (fluent)","l.en":"English (intermediate)",
+      "h.prog":"Programming languages","h.tech":"Technologies & frameworks",
+      "h.exp":"Experience",
+      "e1.d":"2026 — present","e1.t":"Deepening Java","e1.p":"Consolidating core Java knowledge and building new projects.",
+      "e2.t":"Full-Stack course — completed","e2.p":"Completed the full curriculum covering frontend, backend, databases and APIs.",
+      "e3.t":"First steps in IT","e3.p":"Introduced to the world of IT through my father since the age of five.",
+      "h.proj":"Projects","pr1.p":"3D game based on JavaScript","pr2.p":"Budget simulator","pr3.p":"AI assistant",
+      "h.cert":"Certificates","p.cert":"Three certificates in programming are available (see the portfolio page)."
+    },
+    ru: {
+      "btn.print":"Печать / PDF",
+      "role":"Full-Stack разработчик | Java | Telegram-бот",
+      "loc":"Самарканд, Окдарьинский район",
+      "h.profile":"Профиль",
+      "p.profile":"Родился 21 мая 2015 года. С компьютерами знаком с пяти лет. Полностью завершил программу Full-Stack и сейчас углубляюсь в Java.",
+      "h.skills":"Навыки","sk.db":"Базы данных",
+      "h.langs":"Языки","l.uz":"Узбекский (родной)","l.ru":"Русский (свободно)","l.en":"Английский (средний)",
+      "h.prog":"Языки программирования","h.tech":"Технологии и фреймворки",
+      "h.exp":"Опыт",
+      "e1.d":"2026 — настоящее время","e1.t":"Углубление в Java","e1.p":"Продолжаю закреплять знания Java и работаю над новыми проектами.",
+      "e2.t":"Курс Full-Stack — завершён","e2.p":"Полностью прошёл курс по frontend, backend, базам данных и API.",
+      "e3.t":"Первые шаги в IT","e3.p":"С пяти лет увлёкся миром IT благодаря отцу.",
+      "h.proj":"Проекты","pr1.p":"3D-игра на JavaScript","pr2.p":"Симулятор бюджета","pr3.p":"AI-ассистент",
+      "h.cert":"Сертификаты","p.cert":"Три сертификата по программированию (см. страницу портфолио)."
+    }
+  };
+  function applyLang(lang) {
+    if (!L[lang]) lang = "uz";
+    var d = L[lang];
+    document.documentElement.setAttribute("lang", lang);
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var v = d[el.getAttribute("data-i18n")];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll(".langsw button").forEach(function (b) {
+      b.classList.toggle("on", b.getAttribute("data-lang") === lang);
+    });
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  function countryToLang(cc) {
+    cc = (cc || "").toUpperCase();
+    if (cc === "UZ") return "uz";
+    var MDH = ["RU", "BY", "KZ", "KG", "AZ", "AM", "TJ", "TM", "UA", "MD"];
+    if (MDH.indexOf(cc) !== -1) return "ru";
+    var EN = [
+      "US", "GB", "CA", "AU", "NZ", "IE", "IN", "PK", "NG", "PH", "MY", "SG",
+      "KE", "ZA", "JM", "GH", "TZ", "UG", "ZW", "ZM", "NA", "BW", "GM", "LR",
+      "SL", "MW", "FJ", "TT", "BZ", "SB", "VU", "PG", "NP", "LK", "BD", "HK",
+      "AE", "QA", "BH", "OM", "KW", "SA", "IL"
+    ];
+    if (EN.indexOf(cc) !== -1) return "en";
+    return "uz";
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  if (!saved) {
+    var nav = ((navigator.language || navigator.userLanguage || "uz") + "").toLowerCase();
+    saved = nav.indexOf("ru") === 0 ? "ru" : nav.indexOf("en") === 0 ? "en" : "uz";
+  }
+  applyLang(saved);
+  document.querySelectorAll(".langsw button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var lg = b.getAttribute("data-lang");
+      applyLang(lg);
+      try { localStorage.setItem("langUser", lg); } catch (e) {}
+    });
+  });
+  document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
+
+  // IP orqali til aniqlash — aynan index.html dagidek (qo'lda tanlanmagan bo'lsa)
+  setTimeout(function () {
+    var manual = null;
+    try { manual = localStorage.getItem("langUser"); } catch (e) {}
+    if (manual) return;
+    try {
+      fetch("https://ipwho.is/").then(function (r) { return r.json(); }).then(function (d) {
+        if (d && d.success && d.country_code) applyLang(countryToLang(d.country_code));
+      }).catch(function () {});
+    } catch (e) {}
+  }, 1000);
+})();
 </script>
 </body>
 </html>

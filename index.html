@@ -2,7 +2,7 @@
 <html lang="uz" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Abdulaziz Abduahadov | Full-Stack Developer</title>
 <meta name="description" content="Abdulaziz Abduahadov — Full-Stack developer. Java, frontend, backend va ma'lumotlar bazalari. Samarqand, Oqdaryo. Telegram: @Laziz_Abduahadov" />
 <meta name="keywords" content="Abdulaziz Abduahadov, Full-Stack Developer, Java dasturchi, portfolio, O'zbekiston dasturchi" />
@@ -23,7 +23,6 @@
 <link rel="dns-prefetch" href="https://t.me" />
 <link rel="dns-prefetch" href="https://api.telegram.org" />
 <link rel="dns-prefetch" href="https://hits.sh" />
-<link rel="preload" as="image" href="photo_2026-08-17_20-17-42.jpg" fetchpriority="high" />
 
 
 <!-- Open Graph -->
@@ -32,16 +31,11 @@
 <meta property="og:title" content="Abdulaziz Abduahadov | Full-Stack Developer" />
 <meta property="og:description" content="Java, Frontend, Backend, Telegram bot va Full-Stack yo'nalishida ishlaydigan yosh dasturchi. Samarqand, O'zbekiston." />
 <meta property="og:url" content="https://abduahadov.wwwi.uz/" />
-<meta property="og:image" content="https://abduahadov.wwwi.uz/photo_2026-08-17_20-17-42.jpg" />
-<meta property="og:image:width" content="640" />
-<meta property="og:image:height" content="640" />
-<meta property="og:image:alt" content="Abdulaziz Abduahadov — Full-Stack Developer" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Abdulaziz Abduahadov | Full-Stack Developer" />
 <meta name="twitter:description" content="Java, Frontend, Backend, Telegram bot va Full-Stack yo'nalishida ishlaydigan yosh dasturchi." />
-<meta name="twitter:image" content="https://abduahadov.wwwi.uz/photo_2026-08-17_20-17-42.jpg" />
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta name="application-name" content="Abdulaziz Portfolio" />
@@ -54,7 +48,6 @@
   "@type": "Person",
   "name": "Abdulaziz Abduahadov",
   "url": "https://abduahadov.wwwi.uz/",
-  "image": "https://abduahadov.wwwi.uz/photo_2026-08-17_20-17-42.jpg",
   "jobTitle": "Full-Stack Developer",
   "description": "11 yoshli Full-Stack dasturchi. Java, Frontend, Backend, Node.js, SQL, Telegram bot, 3D (Three.js). Samarqand, O'zbekiston.",
   "knowsAbout": ["Java", "JavaScript", "TypeScript", "SQL", "REST API", "Telegram API", "Node.js", "HTML", "CSS", "Three.js", "PWA"],
@@ -254,6 +247,16 @@
   }
   @keyframes spinRing{to{filter:hue-rotate(360deg)}}
   .frame img{width:100%;height:100%;object-fit:cover;border-radius:24px}
+  .avatar-ph{width:100%;height:100%;border-radius:24px;position:relative;overflow:hidden;
+    background:linear-gradient(155deg,#131a36 0%,#0a0c1c 55%,#161236 100%);border:1px solid rgba(255,255,255,.07);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+  .avatar-ph::after{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+    background-size:30px 30px;-webkit-mask-image:radial-gradient(circle at 50% 42%,#000 18%,transparent 72%);mask-image:radial-gradient(circle at 50% 42%,#000 18%,transparent 72%)}
+  .avatar-ph .mono{position:relative;z-index:1;font-size:clamp(3rem,7vw,4.4rem);font-weight:800;letter-spacing:.1em;
+    background:linear-gradient(120deg,#22d3ee,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .avatar-ph .url{position:relative;z-index:1;font-size:.78rem;letter-spacing:.32em;color:var(--muted)}
+  html[data-theme="light"] .avatar-ph{background:linear-gradient(155deg,#eef1ff 0%,#e7eafb 55%,#f5eeff 100%);border-color:#d8ddf3}
   .dot-ring{position:absolute;inset:-26px;border:2px dashed rgba(139,92,246,.5);border-radius:38px;animation:rot 26s linear infinite;z-index:1}
   @keyframes rot{to{transform:rotate(360deg)}}
   .chip{position:absolute;z-index:3;background:rgba(13,16,36,.92);border:1px solid var(--line);border-radius:14px;
@@ -273,7 +276,7 @@
   @keyframes marq{to{transform:translateX(-50%)}}
 
   /* STATS */
-  .stripe{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:70px 0 20px}
+  .stripe{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:70px 0 20px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 18px;text-align:center;transition:transform .25s,border-color .25s}
   .stat:hover{transform:translateY(-5px);border-color:var(--violet)}
   .stat b{display:block;font-size:2.2rem;font-weight:800;letter-spacing:-1px}
@@ -712,11 +715,11 @@
       <span class="badge"><span class="p"></span> <span data-i18n="hero.badge">Full-Stack Developer</span></span>
       <h1>Abdulaziz<br /><span class="grad">Abduahadov</span></h1>
       <p class="typed"><span id="typed">Java dasturchisi</span><i></i></p>
-      <p class="hero-sub" data-i18n="hero.sub">Full-stack yo'nalishni <b>to'liq tugatganman</b>. Java, frontend va backend texnologiyalarida ishlayman. <b>PC savodxonlik</b> — yuqori darajada.</p>
+      <p class="hero-sub" data-i18n="hero.sub">Full-stack yo'nalishni <b>to'liq tugatganman</b>. Java, frontend va backend texnologiyalarida ishlayman.</p>
       <div class="cta">
         <a href="#contact" class="btn btn-primary" data-i18n="hero.ctaContact">Bog'lanish</a>
         <a href="cv.html" class="btn btn-ghost" data-i18n="hero.cv"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg> CV</a>
-        <a href="cv.pdf" class="btn btn-ghost" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg> PDF</a>
+        <a href="cv.html" class="btn btn-ghost" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg> PDF</a>
         <a href="#certs" class="btn btn-ghost" data-i18n="hero.certs">Sertifikatlar</a>
       </div>
       <div class="socials">
@@ -730,9 +733,8 @@
       <span class="orb-bg"></span>
       <span class="dot-ring"></span>
       <div class="chip chip1"><span><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span><div><b data-i18n="chip1.l">Yo'nalish</b><span data-i18n="chip1.v">Dasturlash</span></div></div>
-      <div class="chip chip2"><span><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg></span><div><b data-i18n="chip2.l">Yo'nalish</b><span data-i18n="chip2.v">PC savodxonlik</span></div></div>
       <div class="chip chip3"><span><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg></span><div><b data-i18n="chip3.l">Kurs</b><span data-i18n="chip3.v">Full-Stack</span></div></div>
-      <div class="frame"><img src="photo_2026-08-17_20-17-42.jpg" alt="Abdulaziz Abduahadov" width="340" height="425" fetchpriority="high" /></div>
+      <div class="frame"><div class="avatar-ph" role="img" aria-label="Abdulaziz Abduahadov"><span class="mono">AA</span><span class="url">abdulaziz.dev</span></div></div>
     </div>
   </div>
 </header>
@@ -753,7 +755,6 @@
     <div class="stat"><b data-count="6" data-suffix="+">0<span>+</span></b><small data-i18n="stat.years">Yil kompyuterda</small></div>
     <div class="stat"><b data-count="5" data-suffix="+">0<span>+</span></b><small data-i18n="stat.tech">Texnologiya</small></div>
     <div class="stat"><b data-count="1">0</b><small data-i18n="stat.course">Full-stack kurs</small></div>
-    <div class="stat"><b data-count="100" data-suffix="%">0<span>%</span></b><small data-i18n="stat.energy">G'ayrat</small></div>
   </div>
 </div>
 
@@ -773,7 +774,6 @@
         <ul class="checks">
           <li><span class="tick"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="about.c1">Full-stack to'liq tugatgan</span></li>
           <li><span class="tick"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="about.c2">Java dasturlash</span></li>
-          <li><span class="tick"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="about.c3">PC savodxonlik</span></li>
           <li><span class="tick"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <img class="tg" src="telegram.png" alt="" /> <span data-i18n="about.c4">Telegram bot</span></li>
           <li><span class="tick"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="about.c5">GitHub'da faol</span></li>
           <li><span class="tick"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="about.c6">Tez o'rganuvchi</span></li>
@@ -814,39 +814,35 @@
     <div class="skills-grid">
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg></div><h3 data-i18n="skills.s1t">Frontend</h3></div>
         <p data-i18n="skills.s1p">HTML, CSS, JavaScript — chiroyli va tezkor interfeyslar.</p>
-        <div class="bar"><i style="--w:92%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>92%</b></div>
+        <div class="bar"><i style="--w:92%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg></div><h3 data-i18n="skills.s2t">Backend</h3></div>
         <p data-i18n="skills.s2p">Server, mantiq va so'rovlarni boshqarish.</p>
-        <div class="bar"><i style="--w:85%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>85%</b></div>
+        <div class="bar"><i style="--w:85%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg></div><h3>Java</h3></div>
         <p data-i18n="skills.s3p">Java tilida mustahkam bilim va amaliyot.</p>
-        <div class="bar"><i style="--w:80%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>80%</b></div>
+        <div class="bar"><i style="--w:80%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg></div><h3 data-i18n="skills.s4t">Database</h3></div>
         <p data-i18n="skills.s4p">Ma'lumotlar bazasi va so'rovlar.</p>
-        <div class="bar"><i style="--w:82%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>82%</b></div>
+        <div class="bar"><i style="--w:82%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-server"/></svg></div><h3>API</h3></div>
         <p data-i18n="skills.s5p">REST API va integratsiya.</p>
-        <div class="bar"><i style="--w:78%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>78%</b></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg></div><h3 data-i18n="skills.s6t">PC savodxonlik</h3></div>
-        <p data-i18n="skills.s6p">Kompyuter bilan professional ishlash.</p>
-        <div class="bar"><i style="--w:95%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>95%</b></div>
+        <div class="bar"><i style="--w:78%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></div><h3 data-i18n="skills.s7t">JavaScript / TypeScript</h3></div>
         <p data-i18n="skills.s7p">Dinamik interfeyslar, dastur mantig'i va zamonaviy web-ilovalar.</p>
-        <div class="bar"><i style="--w:85%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>85%</b></div>
+        <div class="bar"><i style="--w:85%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></div><h3 data-i18n="skills.s8t">Python</h3></div>
         <p data-i18n="skills.s8p">Skript, avtomatlashtirish va ma'lumotlar bilan ishlash.</p>
-        <div class="bar"><i style="--w:75%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>75%</b></div>
+        <div class="bar"><i style="--w:75%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
       <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></div><h3 data-i18n="skills.s9t">C / C++</h3></div>
         <p data-i18n="skills.s9p">Yuqori samarali dasturlar va tizimlar bilan ishlash.</p>
-        <div class="bar"><i style="--w:65%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span><b>65%</b></div>
+        <div class="bar"><i style="--w:65%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
       </div>
     </div>
     <div class="techs">
@@ -997,14 +993,10 @@
     <div class="cert-grid">
       <a class="cert" href="0dca5708-5d59-4d34-83a1-09d85dcd461a.jpg" target="_blank" rel="noopener">
         <img src="0dca5708-5d59-4d34-83a1-09d85dcd461a.jpg" alt="Sertifikat 1" loading="lazy" /><small data-i18n="cert.1">Sertifikat 1</small></a>
-      <a class="cert" href="441e6709-fe32-412a-9845-a9165ad0bf07.jpg" target="_blank" rel="noopener">
-        <img src="441e6709-fe32-412a-9845-a9165ad0bf07.jpg" alt="Sertifikat 2" loading="lazy" /><small data-i18n="cert.2">Sertifikat 2</small></a>
-      <a class="cert" href="974fea84-7b69-450a-ada0-1a94ca85e317.jpg" target="_blank" rel="noopener">
-        <img src="974fea84-7b69-450a-ada0-1a94ca85e317.jpg" alt="Sertifikat 3" loading="lazy" /><small data-i18n="cert.3">Sertifikat 3</small></a>
       <a class="cert" href="e191b06a-802b-4ca6-8771-d19b29f68d3e.jpg" target="_blank" rel="noopener">
-        <img src="e191b06a-802b-4ca6-8771-d19b29f68d3e.jpg" alt="Sertifikat 4" loading="lazy" /><small data-i18n="cert.4">Sertifikat 4</small></a>
+        <img src="e191b06a-802b-4ca6-8771-d19b29f68d3e.jpg" alt="Sertifikat 2" loading="lazy" /><small data-i18n="cert.2">Sertifikat 2</small></a>
       <a class="cert" href="photo_2026-08-27_15-26-15.jpg" target="_blank" rel="noopener">
-        <img src="photo_2026-08-27_15-26-15.jpg" alt="Sertifikat 5" loading="lazy" /><small data-i18n="cert.5">Sertifikat 5</small></a>
+        <img src="photo_2026-08-27_15-26-15.jpg" alt="Sertifikat 3" loading="lazy" /><small data-i18n="cert.3">Sertifikat 3</small></a>
     </div>
   </div>
 </section>
@@ -1124,7 +1116,7 @@
       <h3><span class="grad" data-i18n="contact.ctaT">Loyihangizni</span> <span data-i18n="contact.ctaT2">birgalikda yaratamiz!</span></h3>
       <p data-i18n="contact.ctaP">Web-sayt, bot yoki dastur buyurtma qilish uchun yozing.</p>
       <a href="https://t.me/Laziz_Abduahadov?text=%D0%A1alom%2C%20portfolio%20saytingizdan%20loyiha%20buyurtma%20qilmoqchiman." target="_blank" rel="noopener" class="btn btn-primary"><img class="tg" src="telegram.png" alt="" /> <span data-i18n="contact.ctaBtn">Hozir yozish</span></a>
-      <a href="cv.pdf" target="_blank" rel="noopener" class="btn btn-ghost"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg> CV (PDF)</a>
+      <a href="cv.html" target="_blank" rel="noopener" class="btn btn-ghost"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg> CV (PDF)</a>
       <div class="qr-row">
         <div class="qr"><div id="qrcode" class="qr-box" aria-label="Telegram QR"></div><small data-i18n="contact.qr">Telegram — skaner qiling</small></div>
         <div class="qr"><div id="qrcode-gh" class="qr-box" aria-label="GitHub QR"></div><small data-i18n="contact.qrGh">GitHub — skaner qiling</small></div>
@@ -1220,15 +1212,6 @@
 <script src="vendor/qrcode.min.js"></script>
 <script>
 (function () {
-  /* ===== ZOOM BLOK: te'fon (pinch) hamda PC (Ctrl skroll/±) yaqinlash/uzoqlashmasin ===== */
-  window.addEventListener("wheel", function (e) { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
-  window.addEventListener("keydown", function (e) {
-    if ((e.ctrlKey || e.metaKey) && (e.key === "+" || e.key === "-" || e.key === "=" || e.key === "_" || e.key === "0")) e.preventDefault();
-  });
-  window.addEventListener("touchstart", function (e) { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
-  window.addEventListener("gesturestart", function (e) { e.preventDefault(); });
-  document.addEventListener("dblclick", function (e) { e.preventDefault(); }, { passive: false });
-
   /* ===== TARJIMA (uz / en / ru) ===== */
   var L = {
     uz: {
@@ -1236,14 +1219,14 @@
       "nav.projects":"Loyihalar","nav.certs":"Sertifikatlar","nav.timeline":"Yo'l","nav.contact":"Aloqa",
       "nav.cta":"Bog'lanish",
       "hero.badge":"Full-Stack Developer",
-      "hero.sub":"Full-stack yo'nalishni <b>to'liq tugatganman</b>. Java, frontend va backend texnologiyalarida ishlayman. <b>PC savodxonlik</b> — yuqori darajada.",
+      "hero.sub":"Full-stack yo'nalishni <b>to'liq tugatganman</b>. Java, frontend va backend texnologiyalarida ishlayman.",
       "hero.ctaContact":"Bog'lanish","hero.cv":"<svg class='ic' aria-hidden='true'><use href='#i-file'/></svg> CV","hero.certs":"Sertifikatlar",
-      "chip1.l":"Yo'nalish","chip1.v":"Dasturlash","chip2.l":"Yo'nalish","chip2.v":"PC savodxonlik","chip3.l":"Kurs","chip3.v":"Full-Stack",
-      "stat.years":"Yil kompyuterda","stat.tech":"Texnologiya","stat.course":"Full-stack kurs","stat.energy":"G'ayrat",
+      "chip1.l":"Yo'nalish","chip1.v":"Dasturlash","chip3.l":"Kurs","chip3.v":"Full-Stack",
+      "stat.years":"Yil kompyuterda","stat.tech":"Texnologiya","stat.course":"Full-stack kurs",
       "about.kicker":"About / Haqimda","about.title1":"Men","about.title2":"kimman?","about.right":"Kod yozish — mening sevimli mashg'ulotim va kelajak kasbim.",
       "about.p1":"Mening ismim <b>Abdulaziz Abduahadov</b>. 2015-yil 21-mayda <b>Samarqand viloyati, Oqdaryo tumanida</b> dunyoga kelganman. Kompyuter olami bilan <b>5 yoshimdanoq</b> tanishman — bunga otam sababchi, chunki uning faoliyati ham IT sohasi bilan bog'liq.",
       "about.p2":"Full-stack yo'nalishni <b>to'liq tugatganman</b>. Java, frontend, backend va ma'lumotlar bazalari bilan erkin ishlayman. Yangi texnologiyalarni juda tez o'rganaman.",
-      "about.c1":"Full-stack to'liq tugatgan","about.c2":"Java dasturlash","about.c3":"PC savodxonlik","about.c4":"Telegram bot","about.c5":"GitHub'da faol","about.c6":"Tez o'rganuvchi",
+      "about.c1":"Full-stack to'liq tugatgan","about.c2":"Java dasturlash","about.c4":"Telegram bot","about.c5":"GitHub'da faol","about.c6":"Tez o'rganuvchi",
       "about.nameL":"Ism","about.surL":"Familiya","about.bornL":"Tug'ilgan","about.ageL":"Yosh","about.regionL":"Viloyat","about.dirL":"Yo'nalish",
       "feat.f1t":"Tez natija","feat.f1p":"Loyihalarni belgilangan muddatda, sifatli topshiraman.",
       "feat.f2t":"Ishonchlilik","feat.f2p":"Har doim onlayn, doim javob beraman.",
@@ -1255,7 +1238,6 @@
       "skills.s3p":"Java tilida mustahkam bilim va amaliyot.",
       "skills.s4t":"Database","skills.s4p":"Ma'lumotlar bazasi va so'rovlar.",
       "skills.s5p":"REST API va integratsiya.",
-      "skills.s6t":"PC savodxonlik","skills.s6p":"Kompyuter bilan professional ishlash.",
       "skills.s7t":"JavaScript / TypeScript","skills.s7p":"Dinamik interfeyslar, dastur mantig'i va zamonaviy web-ilovalar.",
       "skills.s8t":"Python","skills.s8p":"Skript, avtomatlashtirish va ma'lumotlar bilan ishlash.",
       "skills.s9t":"C / C++","skills.s9p":"Yuqori samarali dasturlar va tizimlar bilan ishlash.",
@@ -1309,14 +1291,14 @@
       "nav.projects":"Projects","nav.certs":"Certificates","nav.timeline":"Journey","nav.contact":"Contact",
       "nav.cta":"Contact me",
       "hero.badge":"Full-Stack Developer",
-      "hero.sub":"I have <b>fully completed</b> a Full-Stack program. I work with Java, frontend and backend technologies. <b>PC literacy</b> — high level.",
+      "hero.sub":"I have <b>fully completed</b> a Full-Stack program. I work with Java, frontend and backend technologies.",
       "hero.ctaContact":"Contact me","hero.cv":"<svg class='ic' aria-hidden='true'><use href='#i-file'/></svg> CV","hero.certs":"Certificates",
-      "chip1.l":"Field","chip1.v":"Programming","chip2.l":"Field","chip2.v":"PC literacy","chip3.l":"Course","chip3.v":"Full-Stack",
-      "stat.years":"Years with computers","stat.tech":"Technologies","stat.course":"Full-stack course","stat.energy":"Energy",
+      "chip1.l":"Field","chip1.v":"Programming","chip3.l":"Course","chip3.v":"Full-Stack",
+      "stat.years":"Years with computers","stat.tech":"Technologies","stat.course":"Full-stack course",
       "about.kicker":"About / Haqida","about.title1":"Who","about.title2":"am I?","about.right":"Coding is my favourite hobby and my future profession.",
       "about.p1":"My name is <b>Abdulaziz Abduahadov</b>. I was born on 21 May 2015 in <b>Samarqand region, Oqdaryo district</b>. I have known the computer world since <b>the age of 5</b> — thanks to my father, whose career is also connected to IT.",
       "about.p2":"I have <b>fully completed</b> the Full-Stack path. I work freely with Java, frontend, backend and databases. I learn new technologies very fast.",
-      "about.c1":"Completed Full-stack","about.c2":"Java programming","about.c3":"PC literacy","about.c4":"Telegram bot","about.c5":"Active on GitHub","about.c6":"Fast learner",
+      "about.c1":"Completed Full-stack","about.c2":"Java programming","about.c4":"Telegram bot","about.c5":"Active on GitHub","about.c6":"Fast learner",
       "about.nameL":"Name","about.surL":"Surname","about.bornL":"Born","about.ageL":"Age","about.regionL":"Region","about.dirL":"Field",
       "feat.f1t":"Fast results","feat.f1p":"I deliver projects on time with quality.",
       "feat.f2t":"Reliability","feat.f2p":"Always online, always responsive.",
@@ -1328,7 +1310,6 @@
       "skills.s3p":"Strong knowledge and practice in Java.",
       "skills.s4t":"Database","skills.s4p":"Databases and queries.",
       "skills.s5p":"REST API and integrations.",
-      "skills.s6t":"PC literacy","skills.s6p":"Professional computer skills.",
       "skills.s7t":"JavaScript / TypeScript","skills.s7p":"Dynamic interfaces, program logic and modern web apps.",
       "skills.s8t":"Python","skills.s8p":"Scripting, automation and working with data.",
       "skills.s9t":"C / C++","skills.s9p":"High-performance programs and systems.",
@@ -1382,14 +1363,14 @@
       "nav.projects":"Проекты","nav.certs":"Сертификаты","nav.timeline":"Путь","nav.contact":"Контакты",
       "nav.cta":"Связаться",
       "hero.badge":"Full-Stack разработчик",
-      "hero.sub":"Я <b>полностью прошёл</b> направление Full-Stack. Работаю с Java, frontend и backend технологиями. <b>Компьютерная грамотность</b> — высокий уровень.",
+      "hero.sub":"Я <b>полностью прошёл</b> направление Full-Stack. Работаю с Java, frontend и backend технологиями.",
       "hero.ctaContact":"Связаться","hero.cv":"<svg class='ic' aria-hidden='true'><use href='#i-file'/></svg> Резюме","hero.certs":"Сертификаты",
-      "chip1.l":"Сфера","chip1.v":"Программирование","chip2.l":"Сфера","chip2.v":"ПК грамотность","chip3.l":"Курс","chip3.v":"Full-Stack",
-      "stat.years":"Лет с компьютером","stat.tech":"Технологий","stat.course":"Full-stack курс","stat.energy":"Энергия",
+      "chip1.l":"Сфера","chip1.v":"Программирование","chip3.l":"Курс","chip3.v":"Full-Stack",
+      "stat.years":"Лет с компьютером","stat.tech":"Технологий","stat.course":"Full-stack курс",
       "about.kicker":"Обо мне","about.title1":"Кто","about.title2":"я?","about.right":"Писать код — моё любимое занятие и будущая профессия.",
       "about.p1":"Меня зовут <b>Абдулазиз Абдуахадов</b>. Я родился 21 мая 2015 года в <b>Самаркандской области, Окдарьинском районе</b>. С миром компьютера знаком с <b>5 лет</b> — благодаря отцу, чья деятельность тоже связана с IT.",
       "about.p2":"Я <b>полностью прошёл</b> Full-Stack. Свободно работаю с Java, frontend, backend и базами данных. Очень быстро учу новые технологии.",
-      "about.c1":"Full-stack окончен","about.c2":"Java разработка","about.c3":"ПК грамотность","about.c4":"Telegram бот","about.c5":"Активен на GitHub","about.c6":"Быстро учусь",
+      "about.c1":"Full-stack окончен","about.c2":"Java разработка","about.c4":"Telegram бот","about.c5":"Активен на GitHub","about.c6":"Быстро учусь",
       "about.nameL":"Имя","about.surL":"Фамилия","about.bornL":"Рождён","about.ageL":"Возраст","about.regionL":"Область","about.dirL":"Направление",
       "feat.f1t":"Быстрый результат","feat.f1p":"Сдаю проекты в срок и качественно.",
       "feat.f2t":"Надёжность","feat.f2p":"Всегда на связи, всегда отвечаю.",
@@ -1401,7 +1382,6 @@
       "skills.s3p":"Прочные знания и практика в Java.",
       "skills.s4t":"Базы данных","skills.s4p":"Базы данных и запросы.",
       "skills.s5p":"REST API и интеграции.",
-      "skills.s6t":"ПК грамотность","skills.s6p":"Профессиональная работа с компьютером.",
       "skills.s7t":"JavaScript / TypeScript","skills.s7p":"Динамические интерфейсы, логика программ и современные веб-приложения.",
       "skills.s8t":"Python","skills.s8p":"Скрипты, автоматизация и работа с данными.",
       "skills.s9t":"C / C++","skills.s9p":"Высокопроизводительные программы и системы.",
