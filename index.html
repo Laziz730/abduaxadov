@@ -83,6 +83,19 @@
   }
 })();
 </script>
+<script>
+/* Devtools (F12/ctrl+shift+I/J/C, ctrl+U) va kontekst menyusini bloklash */
+(function () {
+  function blk(e) { e.preventDefault(); return false; }
+  document.addEventListener("contextmenu", blk);
+  document.addEventListener("keydown", function (e) {
+    var k = e.keyCode || e.which;
+    if (k === 123) return blk(e);                       /* F12 */
+    if (e.ctrlKey && e.shiftKey && (k === 73 || k === 74 || k === 67)) return blk(e); /* I,J,C */
+    if (e.ctrlKey && k === 85) return blk(e);           /* Ctrl+U */
+  });
+})();
+</script>
 <style>
   :root{
     --bg:#05060f;
@@ -1360,6 +1373,7 @@
       "ratings.kicker":"Ratings / Baxolar","ratings.title1":"Portfolioga","ratings.title2":"baxo bering","ratings.right":"Baxoyingiz pastdagi ro'yxatda ko'rinadi.",
       "ratings.prompt":"Necha yulduz beringasiz?","ratings.commentPh":"Mulohaza (ixtiyoriy)...","ratings.send":"Baxo yuborish",
       "ratings.thanks":"Rahmat! Baxoyingiz saqlandi.","ratings.fail":"Baxo yuborilmadi — qayta urinib ko'ring.",
+      "ratings.limit":"1 kunda 1 marta baholash mumkin — keyingisi","ratings.limitS":"soatdan keyin",
       "ratings.count":"baxo","ratings.empty":"Hali baxo yo'q — birinchi bo'lib baholang!"
     },
     en: {
@@ -1432,6 +1446,7 @@
       "ratings.kicker":"Ratings","ratings.title1":"Rate the","ratings.title2":"portfolio","ratings.right":"Your rating appears in the list below.",
       "ratings.prompt":"How many stars?","ratings.commentPh":"Feedback (optional)...","ratings.send":"Send rating",
       "ratings.thanks":"Thanks! Your rating was saved.","ratings.fail":"Couldn't send rating — try again.",
+      "ratings.limit":"You can rate once a day — next in","ratings.limitS":"hours",
       "ratings.count":"ratings","ratings.empty":"No ratings yet — be the first!"
     },
     ru: {
@@ -1504,6 +1519,7 @@
       "ratings.kicker":"Оценки","ratings.title1":"Оцените","ratings.title2":"портфолио","ratings.right":"Ваша оценка появится в списке ниже.",
       "ratings.prompt":"Сколько звёзд?","ratings.commentPh":"Отзыв (необязательно)...","ratings.send":"Отправить",
       "ratings.thanks":"Спасибо! Оценка сохранена.","ratings.fail":"Не удалось отправить — попробуйте ещё раз.",
+      "ratings.limit":"Можно оценить 1 раз в день — следующая через","ratings.limitS":"час.",
       "ratings.count":"оценок","ratings.empty":"Оценок пока нет — будьте первым!"
     }
   };
@@ -1875,6 +1891,16 @@
       rateFbEl.textContent = (L[savedLang] || L.uz)["ratings.prompt"] || "";
       return;
     }
+    var DAY = 24 * 60 * 60 * 1000;
+    var lastR = 0;
+    try { lastR = parseInt(localStorage.getItem("rate1day"), 10) || 0; } catch (e) {}
+    if (lastR && Date.now() - lastR < DAY) {
+      rateFbEl.className = "rate-feedback err";
+      var leftH = Math.ceil((DAY - (Date.now() - lastR)) / 3600000);
+      var Lc = (L[savedLang] || L.uz);
+      rateFbEl.textContent = (Lc["ratings.limit"] || "1 kunda 1 marta baholash mumkin") + " " + leftH + " " + (Lc["ratings.limitS"] || "soatdan keyin");
+      return;
+    }
     var rec = { s: selStar, c: (rateCmtEl.value || "").trim().slice(0, 400), t: Date.now() };
     rateSendEl.disabled = true;
     rateFbEl.className = "rate-feedback";
@@ -1882,6 +1908,7 @@
     fetch(RATE_URL, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(rateCache.concat([rec])), cache: "no-store" })
       .then(function (r) {
         if (!r.ok) throw new Error("kvdb " + r.status);
+        try { localStorage.setItem("rate1day", String(Date.now())); } catch (e2) {}
         rateCache.push(rec);
         renderRatings(rateCache);
         rateCmtEl.value = "";
