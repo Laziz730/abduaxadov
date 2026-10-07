@@ -309,7 +309,7 @@
   .checks li{display:flex;gap:9px;align-items:center;font-size:.9rem;font-weight:600}
   .checks .tick{width:22px;height:22px;border-radius:7px;background:var(--gradSoft);display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;color:#22d3ee;flex-shrink:0}
   .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .info-grid div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:13px;padding:13px 15px;font-size:.88rem}
+  .info-grid div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:13px;padding:13px 15px;font-size:.88rem;overflow-wrap:anywhere}
   html[data-theme="light"] .info-grid div{background:rgba(30,35,70,.04)}
   .info-grid b{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:2px}
   .tg{width:15px;height:15px;border-radius:50%;object-fit:cover;vertical-align:-2px;margin-right:4px}
@@ -648,7 +648,10 @@
     .chip3{right:-6px;top:44%}
   }
   @media (max-width:700px){
-    .menu{position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+    nav{padding:14px 4%;gap:10px}
+    .nav-right{gap:6px}
+    .langs button{padding:4px 7px;font-size:.75rem}
+    .menu{position:fixed;inset:0;flex-direction:column;flex-wrap:nowrap;overflow-y:auto;align-items:center;justify-content:center;gap:26px;
       background:rgba(5,6,15,.98);transform:translateY(-100%);transition:transform .35s;z-index:50}
     html[data-theme="light"] .menu{background:rgba(244,245,252,.99)}
     .menu.open{transform:translateY(0)}
@@ -662,47 +665,17 @@
     .proc-grid{grid-template-columns:1fr 1fr}
     .mnav{display:flex}
     .fab{bottom:74px}
+    .ai-fab{bottom:150px}
     .to-top{display:none}
     body{padding-bottom:64px}
     section{padding:70px 0}
   }
-
-  /* ===== APP MODE: scroll umuman yo'q — har bir bo'lim to'liq ekranli "view" ===== */
-  html{scroll-behavior:auto}
-  html,body{height:100%;overflow:hidden;overscroll-behavior:none}
-  body{width:100%;max-width:100%}
-  img,video{max-width:100%}
-  nav{position:fixed;top:0;left:0;right:0}
-  .view{display:none;width:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;
-    scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;
-    margin-top:var(--navh,74px);
-    height:calc(100vh - var(--navh,74px));height:calc(100dvh - var(--navh,74px))}
-  .view::-webkit-scrollbar{width:0;height:0}
-  .view.on{display:block}
-  .view.reveal{opacity:1;transform:none;transition:none}
-  body{padding-bottom:0}
-  header.hero{min-height:0}
-  header.hero.view.on{display:flex;flex-direction:column;justify-content:center}
-  header.hero .marquee{margin-top:auto;position:relative;z-index:2}
-  .info-grid div{overflow-wrap:anywhere}
-  #about > .wrap:first-child .stripe{margin-top:6px}
-  #progress,.to-top{display:none!important}
   @media (max-width:560px){
-    nav{padding:14px 4%}
-    .logo{font-size:1.15rem}
-    .langs button{padding:5px 8px;font-size:.78rem}
-    .theme-btn,.bg-btn{padding:7px}
-    .bg-btn{display:none}
-    footer{padding-bottom:20px}
-    .stripe{gap:10px}
-  }
-  @media (max-width:400px){
-    .theme-btn{display:none}
     .logo{font-size:1.05rem}
+    .langs button{padding:3px 6px;font-size:.7rem}
   }
-  @media (max-height:520px) and (orientation:landscape){
-    header.hero{padding:70px 0 30px}
-    .hero-grid{gap:24px}
+  @media (max-width:360px){
+    .bg-btn{display:none}
   }
 </style>
 </head>
@@ -823,10 +796,10 @@
   <div class="marquee-track">
     <span>Java <b>✦</b></span><span>Full-Stack <b>✦</b></span><span>Telegram Bot <b>✦</b></span>
     <span>Frontend <b>✦</b></span><span>Backend <b>✦</b></span><span>Database <b>✦</b></span>
-    <span>API <b>✦</b></span><span>PC Savodxonlik <b>✦</b></span>
+    <span>API <b>✦</b></span>
     <span>Java <b>✦</b></span><span>Full-Stack <b>✦</b></span><span>Telegram Bot <b>✦</b></span>
     <span>Frontend <b>✦</b></span><span>Backend <b>✦</b></span><span>Database <b>✦</b></span>
-    <span>API <b>✦</b></span><span>PC Savodxonlik <b>✦</b></span>
+    <span>API <b>✦</b></span>
   </div>
 </div>
 
@@ -1687,19 +1660,30 @@
     });
   });
 
+  var toTop = document.getElementById("toTop");
   var nav = document.querySelector("nav");
+  var prog = document.getElementById("progress");
   var links = document.querySelectorAll(".menu a");
-  var mLinks = document.querySelectorAll(".mnav a");
-  function markNav(id) {
-    nav.classList.toggle("scrolled", id !== "home");
-    links.forEach(function (a) {
-      a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+  var secs = ["home", "about", "skills", "services", "process", "projects", "certs", "timeline", "faq", "contact"];
+  function onScroll() {
+    toTop.classList.toggle("show", window.scrollY > 320);
+    nav.classList.toggle("scrolled", window.scrollY > 60);
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (prog) prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    var pos = window.scrollY + 140;
+    var cur = "home";
+    secs.forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s && s.offsetTop <= pos) cur = id;
     });
-    mLinks.forEach(function (a) {
-      a.classList.toggle("active", a.getAttribute("href") === "#" + id ||
-        ((id === "about" || id === "skills" || id === "process") && a.getAttribute("href") === "#services"));
+    links.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + cur);
     });
   }
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
 
   document.querySelectorAll("section, .stripe").forEach(function (el) { el.classList.add("reveal"); });
 
@@ -1749,79 +1733,6 @@
     }, { threshold: 0.4 });
     cio.observe(cnt);
   }
-
-  /* ===== APP MODE: bo'limlar to'liq ekranli "view" ga o'tadi (sahifa scrolli yo'q) ===== */
-  var VIEW_OF = { process: "services", threed: "projects", faq: "timeline", ratings: "contact" };
-  (function initViews() {
-    var home = document.getElementById("home");
-    var mq = document.querySelector(".marquee");
-    if (mq && home) home.appendChild(mq);
-    var about = document.getElementById("about");
-    var stats = document.querySelector("body > .wrap");
-    if (stats && about) about.insertBefore(stats, about.firstChild);
-    var pr = document.getElementById("projects");
-    var td = document.getElementById("threed");
-    if (pr && td && td.parentNode === document.body) pr.appendChild(td);
-    var sv = document.getElementById("services");
-    var pc = document.getElementById("process");
-    if (sv && pc && pc.parentNode === document.body) sv.appendChild(pc);
-    var tl = document.getElementById("timeline");
-    var fq = document.getElementById("faq");
-    if (tl && fq && fq.parentNode === document.body) tl.appendChild(fq);
-    var ct = document.getElementById("contact");
-    var rt = document.getElementById("ratings");
-    if (ct && rt && rt.parentNode === document.body) ct.appendChild(rt);
-    var ft = document.querySelector("body > footer");
-    if (ct && ft) ct.appendChild(ft);
-    if (home) home.classList.add("view");
-    document.querySelectorAll("body > section").forEach(function (s) { s.classList.add("view"); });
-  })();
-  function viewIdFor(id) { return VIEW_OF[id] || id; }
-  function setView(id, push) {
-    var vid = viewIdFor(id);
-    var target = document.getElementById(vid);
-    if (!target || !target.classList.contains("view")) {
-      vid = "home";
-      target = document.getElementById("home");
-    }
-    document.querySelectorAll(".view").forEach(function (v) { v.classList.toggle("on", v === target); });
-    document.body.setAttribute("data-view", vid);
-    markNav(vid);
-    if (target) target.scrollTop = 0;
-    if (vid === "skills") runBars();
-    if (vid === "about") runCounts();
-    if (target) {
-      target.classList.add("in");
-      target.querySelectorAll(".reveal").forEach(function (s) { s.classList.add("in"); });
-    }
-    if (push !== false) {
-      try { history.pushState({ v: vid }, "", "#" + vid); } catch (e) {}
-    }
-  }
-  window.setView = setView;
-  document.addEventListener("click", function (e) {
-    var a = e.target && e.target.closest ? e.target.closest("a[href^='#']") : null;
-    if (!a) return;
-    var href = a.getAttribute("href") || "";
-    if (href.length < 2) return;
-    var id = href.slice(1);
-    if (!document.getElementById(id)) return;
-    e.preventDefault();
-    if (burger) burger.classList.remove("open");
-    if (menu) menu.classList.remove("open");
-    setView(id, true);
-  });
-  function syncNavH() {
-    var h = nav ? nav.offsetHeight : 74;
-    document.documentElement.style.setProperty("--navh", (h || 74) + "px");
-  }
-  syncNavH();
-  window.addEventListener("resize", syncNavH);
-  if ("ResizeObserver" in window && nav) new ResizeObserver(syncNavH).observe(nav);
-  setView((location.hash || "").replace(/^#/, ""), false);
-  window.addEventListener("popstate", function () {
-    setView((location.hash || "#home").replace(/^#/, ""), false);
-  });
 
   /* LIGHTBOX */
   var lb = document.getElementById("lightbox");
@@ -1987,7 +1898,22 @@
   if (rateSendEl) rateSendEl.addEventListener("click", saveRating);
   loadRatings();
 
-  /* MOBIL PASTKI NAV — faol bo'lim setView ichidagi markNav da belgilanadi */
+  /* MOBIL PASTKI NAV */
+  var mLinks = document.querySelectorAll(".mnav a");
+  if (mLinks.length) {
+    window.addEventListener("scroll", function () {
+      var pos = window.scrollY + window.innerHeight / 2;
+      var cur = "home";
+      secs.forEach(function (id) {
+        var s = document.getElementById(id);
+        if (s && s.offsetTop <= pos) cur = id;
+      });
+      mLinks.forEach(function (a) {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + cur ||
+          (cur === "about" || cur === "skills" || cur === "process" ? a.getAttribute("href") === "#services" : false));
+      });
+    });
+  }
 
   /* 3D MODEL LAZY LOAD: ko'rinadigan paytda src beriladi (173 MB birdan yuklanmaydi) */
   var mvs = document.querySelectorAll("model-viewer[data-src]");
@@ -2474,9 +2400,9 @@ window.addEventListener("load", function () {
   var mic = null;
 
   function scrollToSection(id) {
-    if (window.setView) { window.setView(id, true); return; }
     var el = document.getElementById(id);
     if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
     try { history.replaceState(null, "", "#" + id); } catch (e) {}
   }
 
