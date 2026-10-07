@@ -2042,7 +2042,7 @@
     }
     function drawStars() {
       sctx2.clearRect(0, 0, W2, H2);
-      if (reducedM) return;
+      if (reducedM || !heroIn) { requestAnimationFrame(drawStars); return; }
       S.forEach(function (p) {
         p.tw += .015;
         p.y += p.vy;
@@ -2057,6 +2057,12 @@
     }
     sizeStars();
     window.addEventListener("resize", sizeStars);
+    var heroIn = true;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) {
+        en.forEach(function (x) { heroIn = x.isIntersecting; });
+      }).observe(heroCv);
+    }
     requestAnimationFrame(drawStars);
   }
 
@@ -2186,15 +2192,7 @@
   }
   setTimeout(detectByGeo, 1000);
 
-  /* TASHRIF SONINI YUKLASH */
-  try {
-    fetch("/api/visits").then(function (r) { return r.json(); }).then(function (d) {
-      if (d && d.ok && document.getElementById("visitCount")) {
-        document.getElementById("visitCount").textContent = String(d.visits);
-      }
-    }).catch(function () {});
-  } catch (e) {}
-})();
+  })();
 </script>
 <script>
 /* :=MODEL-VIEWER DINAMIK YUKLASH: faqat 3D model ko'ringanda (tezlik uchun) */
@@ -2375,8 +2373,12 @@ window.addEventListener("load", function () {
 
   document.addEventListener("keydown", function (e) {
     if (e.key && e.key.length === 1) {
-      typed = (typed + e.key.toLowerCase()).slice(-secret.length);
-      if (typed === secret && term && term.hidden) { openTerm(); typed = ""; }
+      var tgt = e.target;
+      var inField = tgt && (tgt.tagName === "INPUT" || tgt.tagName === "TEXTAREA");
+      if (!inField) {
+        typed = (typed + e.key.toLowerCase()).slice(-secret.length);
+        if (typed === secret && term && term.hidden) { openTerm(); typed = ""; }
+      }
     } else if (e.key === "Escape") {
       if (gpanel && !gpanel.hidden) closeGoogle();
       else if (term && !term.hidden) closeTerm();
@@ -2419,7 +2421,7 @@ window.addEventListener("load", function () {
     } else if (cmd === "") {
       /* bo'sh */
     } else {
-      print('buyruq topilmadi: <span style="color:#ff8b8b">' + cmd + '</span>. <b>help</b> yozing.');
+      print('buyruq topilmadi: <span style="color:#ff8b8b">' + cmd.replace(/[<>&]/g, "") + '</span>. <b>help</b> yozing.');
     }
   });
 })();
