@@ -125,10 +125,11 @@
   .tick .ic{width:.9rem;height:.9rem}
   .sec-kicker .kico{width:18px;height:18px;color:var(--violet)}
   .proc .ic{position:absolute;top:16px;right:18px;width:24px;height:24px;color:var(--cyan);opacity:.85}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overscroll-behavior-x:none}
   body{
     font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
     background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;
+    overscroll-behavior-y:contain;overflow-y:scroll;
     transition:background .3s,color .3s;
   }
   img{max-width:100%;display:block}
@@ -567,7 +568,7 @@
   .g-loading[hidden]{display:none}
   .g-spin{width:18px;height:18px;border-radius:50%;border:3px solid #2a3550;border-top-color:#8b5cf6;animation:sp .8s linear infinite}
   @keyframes sp{to{transform:rotate(360deg)}}
-  .g-res{position:absolute;inset:0;z-index:2;overflow-y:auto;background:#0b0f1a;padding:8px 0 14px}
+  .g-res{position:absolute;inset:0;z-index:2;overflow-y:auto;overscroll-behavior:contain;background:#0b0f1a;padding:8px 0 14px}
   .g-res[hidden]{display:none}
   .g-res-top{padding:6px 14px 8px;color:#6ee7b7;font-size:.72rem;letter-spacing:.03em;border-bottom:1px solid #1a2340}
   .g-item{display:block;padding:11px 14px;border-bottom:1px solid #16203c;text-decoration:none}
@@ -582,7 +583,7 @@
   .term-title{flex:1;text-align:center;color:#8fa3c8;font-size:.8rem}
   .term-x{background:none;border:none;color:#8fa3c8;font-size:1.1rem;cursor:pointer;line-height:1}
   .term-x:hover{color:#ff5f56}
-  .term-body{height:230px;overflow-y:auto;padding:14px 16px;color:#cde7ff;font-size:.86rem;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+  .term-body{height:230px;overflow-y:auto;overscroll-behavior:contain;padding:14px 16px;color:#cde7ff;font-size:.86rem;line-height:1.55;white-space:pre-wrap;word-break:break-word}
   .term-input-line{display:flex;align-items:center;gap:8px;padding:8px 14px;border-top:1px solid #2a3550;background:#0b0f1a}
   .prompt{color:#6ee7b7;font-weight:700}
   #termInput{flex:1;background:transparent;border:none;outline:none;color:#cde7ff;font-family:inherit;font-size:.9rem}
@@ -599,7 +600,7 @@
   .ai-dot{width:10px;height:10px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80}
   .ai-x{margin-left:auto;background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;line-height:1}
   .ai-x:hover{opacity:.7}
-  .ai-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:rgba(5,7,20,.6)}
+  .ai-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:14px;display:flex;flex-direction:column;gap:10px;background:rgba(5,7,20,.6)}
   .ai-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.88rem;line-height:1.5;white-space:pre-wrap;word-break:break-word}
   .ai-bot{background:var(--card);color:var(--text);border:1px solid var(--line);border-top-left-radius:4px;align-self:flex-start}
   .ai-user{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;border-top-right-radius:4px;align-self:flex-end}
@@ -651,7 +652,7 @@
     nav{padding:14px 4%;gap:10px}
     .nav-right{gap:6px}
     .langs button{padding:4px 7px;font-size:.75rem}
-    .menu{position:fixed;inset:0;flex-direction:column;flex-wrap:nowrap;overflow-y:auto;align-items:center;justify-content:center;gap:26px;
+    .menu{position:fixed;inset:0;flex-direction:column;flex-wrap:nowrap;overflow-y:auto;overscroll-behavior-y:contain;align-items:center;justify-content:center;gap:26px;
       background:rgba(5,6,15,.98);transform:translateY(-100%);transition:transform .35s;z-index:50}
     html[data-theme="light"] .menu{background:rgba(244,245,252,.99)}
     .menu.open{transform:translateY(0)}
