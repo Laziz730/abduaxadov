@@ -788,14 +788,6 @@
   .math-row input{width:96px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px 12px;font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
   .math-row input:focus{border-color:var(--violet)}
 
-  /* ===== OB-HAVO CHIP (footer) ===== */
-  .wchip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.85rem;font-weight:600;color:var(--text);margin-top:8px}
-  .wchip[hidden]{display:none}
-  .navw{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.84rem;font-weight:700;color:var(--text);line-height:1;transition:border-color .2s;white-space:nowrap}
-  .navw:hover{border-color:var(--violet)}
-  .navw[hidden]{display:none}
-  @media (max-width:760px){.navw{display:none}}
-
   /* ===== BLOG ===== */
   .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:18px}
   .blog-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;transition:transform .25s,border-color .25s;color:var(--text);overflow:hidden}
@@ -916,7 +908,6 @@
       <button type="button" data-lang="en">EN</button>
       <button type="button" data-lang="ru">RU</button>
     </div>
-    <span class="navw" id="navW" hidden title="Samarqand ob-havosi" aria-label="Samarqand ob-havosi"><span id="nwIcon" aria-hidden="true">&#9728;</span> <b id="nwText">--°C</b></span>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Tema"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></button>
     <button class="bg-btn" id="bgBtn" type="button" aria-label="Fon o'zgartirish"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></button>
     <a href="#contact" class="nav-cta" data-i18n="nav.cta">Bog'lanish</a>
@@ -1407,7 +1398,6 @@
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> <span data-i18n="footer.uz">O'zbekiston:</span> <b id="uztime">--:--:--</b></p>
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> <span data-i18n="footer.visits">Saytga kirganlar:</span> <img src="https://hits.sh/abduahadov.wwwi.uz.svg?label=&color=7c3aed&style=flat-square&logoColor=white" alt="0" style="vertical-align:middle;height:18px;border-radius:4px" loading="lazy" /></p>
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> <span data-i18n="footer.channel">Telegram kanal:</span> <a href="https://t.me/abdulazizabduahadov" target="_blank" rel="noopener" style="color:var(--violet);font-weight:700">@abdulazizabduahadov</a></p>
-  <p><span class="wchip" id="wchip" hidden title="Samarqand ob-havosi"><span id="wIcon" aria-hidden="true">&#9728;</span> <span id="wText">Samarqand: &hellip;</span></span></p>
   <p style="margin-top:10px"><button type="button" class="term-open" id="termOpen" title="Dasturchi terminali">&#9656; Terminal</button> <button type="button" class="term-open" id="cpalOpen" title="Buyruqlar paneli">&#8984; Ctrl+K</button></p>
   <p style="margin-top:8px;font-size:.82rem;opacity:.75;letter-spacing:.04em"><b>Portfolio</b> — v1.0.0</p>
 </footer>
@@ -2229,36 +2219,6 @@
     });
   });
   loadLikes();
-
-  /* ===== OB-HAVO (open-meteo, Samarqand) ===== */
-  var wchip = document.getElementById("wchip");
-  var navW = document.getElementById("navW");
-  function wHide() { if (wchip) wchip.hidden = true; if (navW) navW.hidden = true; }
-  function loadWeather() {
-    if (!wchip && !navW) return;
-    if (!navigator.onLine) { wHide(); return; }
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=39.65&longitude=66.96&current=temperature_2m,weather_code&timezone=auto", { cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .then(function (d) {
-        var cur = d && d.current;
-        if (!cur || typeof cur.temperature_2m === "undefined") throw 0;
-        var codes = { 0: "☀", 1: "🌤", 2: "⛅", 3: "☁", 45: "🌫", 48: "🌫", 51: "🌦", 53: "🌦", 55: "🌦", 61: "🌧", 63: "🌧", 65: "🌧", 71: "🌨", 73: "🌨", 75: "❄", 80: "🌦", 81: "🌧", 82: "⛈", 95: "⛈", 96: "⛈", 99: "⛈" };
-        var ic = codes[cur.weather_code] || "🌤";
-        var deg = Math.round(cur.temperature_2m) + "°C";
-        var wI = document.getElementById("wIcon"), wT = document.getElementById("wText");
-        if (wI) wI.textContent = ic;
-        if (wT) wT.textContent = "Samarqand: " + deg;
-        if (wchip) wchip.hidden = false;
-        var nI = document.getElementById("nwIcon"), nT = document.getElementById("nwText");
-        if (nI) nI.textContent = ic;
-        if (nT) nT.textContent = deg;
-        if (navW) navW.hidden = false;
-      })
-      .catch(wHide);
-  }
-  loadWeather();
-  window.addEventListener("online", loadWeather);
-  window.addEventListener("offline", wHide);
 
   /* ===== BLOG (blog.json) ===== */
   var blogGrid = document.getElementById("blogGrid");
