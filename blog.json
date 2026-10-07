@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "Web",
+    "date": "2025-08-14",
+    "title": "PWA nima va nima uchun u kerak?",
+    "body": "PWA (Progressive Web App) — oddiy veb-saytning imkoniyatlarini ilova darajasiga ko'taruvchi texnologiya. Uning asosi uchta narsa: service worker, manifest va HTTPS.\n\nService worker saytni internet yo'q bo'lganda ham ishlashini ta'minlaydi — men o'z saytimda network-first strategiyasidan foydalanaman: avval tarmoqdan yangi ma'lumot olinadi, bo'lmasa keshdagi nusxa ko'rsatiladi.\n\nNatija: foydalanuvchi sayt ochilishini kutmaydi, ilova sifatida o'rnatib qo'yish mumkin va aloqa sharoiti yomon joylarda ham hamma narsa ochiladi."
+  },
+  {
+    "tag": "Backend",
+    "date": "2025-09-02",
+    "title": "Vercel serverless + kvdb.io: 6 yoshda backend qanday qildim?",
+    "body": "Portfoliyo reytinglari va layklarni saqlash uchun alohida server kerak edi, lekin men unda yo'q. Yechim — Vercel serverless funksiyalar.\n\nHar bir API (rating, like, contact) — bu alohida .js fayl. Ular kvdb.io dagi JSON fayllarga yozadi, kalit esa faqat server tomonida (env) saqlanadi — brauzerda hech qanday token ko'rinmaydi.\n\nSpamdan himoya uchun IP bo'yicha limit (10 daqiqada 10 ta) qo'ydim. Shu yetarli — va hamma narsa bepul ishlaydi."
+  },
+  {
+    "tag": "Ta'lim",
+    "date": "2025-09-25",
+    "title": "11 yoshda dasturlashni qanday o'rganyapman?",
+    "body": "Men 5 yoshimdan kompyuterga qarayman, dasturlashni esa bir necha yil oldin jiddiy boshladim. Eng muhim qoidam — har kuni kamida 1-2 soat kod yozish.\n\nNoto'g'ri yo'l: darslikni oxirigacha o'qib chiqishni kutish. To'g'ri yo'l: bittagina loyiha tanlab, uni tugatmaguncha ishlash. Men birinchi loyihamni yozganda 20+ xatolikka duch keldim — aynan shu xatolar menga eng ko'p narsani o'rgatdi.\n\nMaslahat: GitHub'ga har kuni bittadan commit tashlang. Bir oydan keyin o'zingizning progressingizga ishonmasligingiz aniq."
+  }
+]

@@ -47,10 +47,14 @@
     padding:7px 11px;border-radius:8px;cursor:pointer;font-family:inherit}
   .langsw button.on{background:linear-gradient(120deg,#8b5cf6,#22d3ee);color:#fff;border-color:transparent}
   @media print{
-    body{background:#fff;padding:0}
-    .sheet{box-shadow:none;border-radius:0}
-    .btn,.langsw{display:none}
-    .top{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+    @page{margin:11mm}
+    body{background:#fff;padding:0;font-size:11pt}
+    .sheet{box-shadow:none;border-radius:0;max-width:none;overflow:visible}
+    .btn,.langsw{display:none!important}
+    .top,.top .contact,h2,.side .pts b i,.main .date,.langs span,.langsw button{print-color-adjust:exact;-webkit-print-color-adjust:exact;color-adjust:exact}
+    .grid{padding:22px 30px;gap:22px}
+    .row,.side p,.side ul li,.top .contact{break-inside:avoid;page-break-inside:avoid}
+    h2{break-after:avoid;page-break-after:avoid}
   }
   @media (max-width:640px){
     .grid{grid-template-columns:1fr}

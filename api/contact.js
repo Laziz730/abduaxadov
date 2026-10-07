@@ -50,6 +50,20 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ ok: true, ignored: true });
   }
 
+  // Matematik savol (bot himoyasi): q = "a+b", a = javob
+  const qRaw = String(body.q || "");
+  const ans = Number(body.a);
+  const m = qRaw.match(/^(\d{1,2})\+(\d{1,2})$/);
+  if (!m || !Number.isInteger(ans) || ans !== Number(m[1]) + Number(m[2])) {
+    return res.status(400).json({ ok: false, error: "Math check failed" });
+  }
+
+  // Minimal o'qish vaqti (kiritish 3 soniyadan tez bo'lmasin)
+  const elapsed = Number(body.t);
+  if (!(elapsed >= 3000)) {
+    return res.status(400).json({ ok: false, error: "Too fast" });
+  }
+
   const name = String(body.name || "").trim().slice(0, 60);
   const contact = String(body.contact || "").trim().slice(0, 80);
   const message = String(body.message || "").trim().slice(0, 1000);

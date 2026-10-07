@@ -50,6 +50,8 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ ok: false, error: "GROQ_API_KEY not set" });
   }
 
+  const langName = { uz: "o'zbekcha", en: "English", ru: "русском" }[String(body.lang || "uz")] || "o'zbekcha";
+
   const system =
     "Sen - Abdulaziz Abduahadovning shaxsiy portfolio saytining AI yordamchisisiz. " +
     "Abdulaziz - 11 yoshli Full-Stack dasturchi, Samarqand, Oqdaryo tumanidan. " +
@@ -58,8 +60,8 @@ module.exports = async function handler(req, res) {
     "Mavjud bo'limlar: home (Bosh), about (Haqimda), skills (Mahorat), services (Xizmatlar), " +
     "projects (Loyihalar), certs (Sertifikatlar), timeline (Yo'l), contact (Aloqa). " +
     "Agar buyruq bo'limga o'tishni so'rasa (masalan 'sertifikatlar bo'limiga o't'), " +
-    "javobga [NAV:certs] qo'sh. Oddiy savolga esa qisqa, do'stona, o'zbekcha javob ber. " +
-    "Qisqa va tushunarli bo'l.";
+    "javobga [NAV:certs] qo'sh. Oddiy savolga esa qisqa, do'stona javob ber. " +
+    "Muhim: butun javobni faqat " + langName + " tilida yoz. Qisqa va tushunarli bo'l.";
 
   const messages = [
     { role: "user", content: system },
