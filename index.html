@@ -531,10 +531,52 @@
   @keyframes fabPulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.55);opacity:0}}
 
   /* ===== YASHIRIN TERMINAL (laziz) ===== */
-  .term{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,92vw);z-index:120;
+  .term{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);width:min(560px,92vw);z-index:120;
     background:#0b0f1a;border:1px solid #2a3550;border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.7);overflow:hidden;font-family:"Consolas","Cascadia Code",monospace;animation:termIn .25s ease}
   .term[hidden]{display:none}
-  @keyframes termIn{from{opacity:0;transform:translate(-50%,-50%) scale(.92)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+  @keyframes termIn{from{opacity:0;transform:translateX(-50%) translateY(16px) scale(.96)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
+  .term-open{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.28);color:#cde7ff;border-radius:8px;
+    padding:5px 13px;font-size:.8rem;cursor:pointer;font-family:"Consolas","Cascadia Code",monospace;letter-spacing:.04em}
+  .term-open:hover{background:rgba(110,231,183,.15);border-color:#6ee7b7;color:#6ee7b7}
+  @media (max-width:640px){.term{bottom:170px}}
+
+  /* ===== GOOGLE PANEL (sayt ichida, pastda) ===== */
+  .gpanel{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);width:min(620px,94vw);height:min(430px,72vh);z-index:130;
+    display:flex;flex-direction:column;background:#0b0f1a;border:1px solid #2a3550;border-radius:14px;
+    box-shadow:0 30px 70px rgba(0,0,0,.7);overflow:hidden;font-family:"Consolas","Cascadia Code",monospace;animation:termIn .25s ease}
+  .gpanel[hidden]{display:none}
+  .g-search{display:flex;gap:8px;padding:10px 12px;background:#141a2b;border-bottom:1px solid #2a3550}
+  #gInput{flex:1;min-width:0;background:#0b0f1a;border:1px solid #2a3550;border-radius:9px;color:#cde7ff;outline:none;
+    padding:9px 12px;font-family:inherit;font-size:.9rem}
+  #gInput:focus{border-color:#8b5cf6}
+  #gBtn{background:linear-gradient(120deg,#8b5cf6,#22d3ee);border:none;color:#fff;border-radius:9px;padding:0 13px;cursor:pointer;display:flex;align-items:center}
+  #gBtn:hover{filter:brightness(1.12)}
+  #gNew{background:rgba(255,255,255,.07);border:1px solid #2a3550;color:#cde7ff;border-radius:9px;padding:0 12px;
+    display:flex;align-items:center;text-decoration:none;font-size:.95rem}
+  #gNew:hover{background:rgba(110,231,183,.14);color:#6ee7b7}
+  .g-note{padding:7px 12px;background:#0e1424;border-bottom:1px solid #2a3550;color:#8fa3c8;
+    font-size:.72rem;line-height:1.5;letter-spacing:.01em}
+  .g-note b{color:#cde7ff}
+  .g-body{flex:1;position:relative;background:#0b0f1a;overflow:hidden}
+  .g-frame{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;background:#fff;z-index:1}
+  .g-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;
+    color:#8fa3c8;font-size:.85rem;line-height:1.7;background:#0b0f1a;z-index:3}
+  .g-hint[hidden]{display:none}
+  .g-loading{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:10px;
+    background:#0b0f1a;color:#8fa3c8;font-size:.85rem}
+  .g-loading[hidden]{display:none}
+  .g-spin{width:18px;height:18px;border-radius:50%;border:3px solid #2a3550;border-top-color:#8b5cf6;animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .g-res{position:absolute;inset:0;z-index:2;overflow-y:auto;background:#0b0f1a;padding:8px 0 14px}
+  .g-res[hidden]{display:none}
+  .g-res-top{padding:6px 14px 8px;color:#6ee7b7;font-size:.72rem;letter-spacing:.03em;border-bottom:1px solid #1a2340}
+  .g-item{display:block;padding:11px 14px;border-bottom:1px solid #16203c;text-decoration:none}
+  .g-item:hover{background:#101730}
+  .g-i-title{color:#8ab4f8;font-size:.93rem;line-height:1.4;margin-bottom:3px;word-break:break-word}
+  .g-i-host{color:#81c995;font-size:.73rem;margin-bottom:4px;word-break:break-all}
+  .g-i-snip{color:#a9b6d3;font-size:.8rem;line-height:1.5;word-break:break-word}
+  .g-err{padding:24px 18px;color:#ff8b8b;font-size:.85rem;text-align:center;line-height:1.7}
+  @media (max-width:640px){.gpanel{bottom:170px;height:64vh}}
   .term-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#141a2b;border-bottom:1px solid #2a3550}
   .term-dot{width:12px;height:12px;border-radius:50%}
   .term-title{flex:1;text-align:center;color:#8fa3c8;font-size:.8rem}
@@ -1165,7 +1207,8 @@
   <p style="margin-top:8px">Made with <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> + <svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg> in Uzbekistan</p>
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> <span data-i18n="footer.uz">O'zbekiston:</span> <b id="uztime">--:--:--</b></p>
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> <span data-i18n="footer.visits">Saytga kirganlar:</span> <img src="https://hits.sh/abduahadov.wwwi.uz.svg?label=&color=7c3aed&style=flat-square&logoColor=white" alt="0" style="vertical-align:middle;height:18px;border-radius:4px" loading="lazy" /></p>
-  <p style="margin-top:10px;font-size:.82rem;opacity:.75;letter-spacing:.04em"><b>Portfolio</b> — v1.0.0</p>
+  <p style="margin-top:10px"><button type="button" class="term-open" id="termOpen" title="Dasturchi terminali">&#9656; Terminal</button></p>
+  <p style="margin-top:8px;font-size:.82rem;opacity:.75;letter-spacing:.04em"><b>Portfolio</b> — v1.0.0</p>
 </footer>
 
 <a class="fab" href="https://t.me/Laziz_Abduahadov?text=%D0%A1alom%2C%20portfolio%20saytingizdan%20yozdim." target="_blank" rel="noopener" title="Telegramda yozish"><img src="telegram.png" alt="Telegram" /></a>
@@ -1179,6 +1222,27 @@
   </div>
   <div class="term-body" id="termBody"><span class="prompt">&#9656;</span> Yashirin terminal. <b>help</b> deb yozing.<br></div>
   <div class="term-input-line"><span class="prompt" id="termPrompt">abdulaziz@portfolio:~$</span><input type="text" id="termInput" autocomplete="off" spellcheck="false" aria-label="Terminal buyruq" /></div>
+</div>
+
+<!-- ===== GOOGLE PANEL (sayt ichida, pastda kichkina) ===== -->
+<div id="gpanel" class="gpanel" hidden>
+  <div class="term-bar">
+    <span class="term-dot" style="background:#ff5f56"></span><span class="term-dot" style="background:#ffbd2e"></span><span class="term-dot" style="background:#27c93f"></span>
+    <span class="term-title">Google — abdulaziz.dev</span>
+    <button type="button" class="term-x" id="gX" aria-label="Yopish">&times;</button>
+  </div>
+  <div class="g-search">
+    <input type="text" id="gInput" placeholder="Google'da qidiring..." autocomplete="off" spellcheck="false" aria-label="Google qidiruv" />
+    <button type="button" id="gBtn" aria-label="Qidirish"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+    <a id="gNew" href="https://www.google.com/" target="_blank" rel="noopener" title="Yangi tabda ochish">&#8599;</a>
+  </div>
+  <div class="g-note">ℹ️ Google natijalari ro'yxat ko'rinishida ochiladi — <b>havola bosilsa yangi tabda o'tadi</b>. Google vaqtincha cheklasa, eski ramka rejimi avtomatik ochiladi.</div>
+  <div class="g-body" id="gBody">
+    <div class="g-loading" id="gLoad" hidden><span class="g-spin"></span> Google qidirilmoqda...</div>
+    <div class="g-res" id="gRes" hidden></div>
+    <iframe id="gFrame" class="g-frame" src="about:blank" title="Google qidiruv" loading="lazy"></iframe>
+    <div class="g-hint" id="gHint">Google'ni sayt ichida oching — yuqoridagi qatorga so'rov yozing yoki <b>google &lt;so'rov&gt;</b> deb terminaldan yozing.</div>
+  </div>
 </div>
 
 <!-- ===== AI YORDAMCHI CHAT ===== -->
@@ -2121,6 +2185,7 @@ window.addEventListener("load", function () {
 
   function openTerm() {
     if (!term) return;
+    closeGoogle();
     term.hidden = false;
     input.value = "";
     input.focus();
@@ -2129,24 +2194,162 @@ window.addEventListener("load", function () {
     if (term) term.hidden = true;
   }
 
+  /* ===== GOOGLE PANEL (sayt ichida, pastda) ===== */
+  var gpanel = document.getElementById("gpanel");
+  var gInput = document.getElementById("gInput");
+  var gFrame = document.getElementById("gFrame");
+  var gHint = document.getElementById("gHint");
+  var gNew = document.getElementById("gNew");
+  var gRes = document.getElementById("gRes");
+  var gLoad = document.getElementById("gLoad");
+  var gSeq = 0;
+
+  function gEsc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function parseGoogle(md) {
+    var i = md.indexOf("## Web results");
+    var sec = i >= 0 ? md.slice(i) : md;
+    var re = /### \[([\s\S]*?)\]\((https?:\/\/[^)\s]+)\)([\s\S]*?)(?=\n### |\n## |$)/g;
+    var out = [], m;
+    while ((m = re.exec(sec)) && out.length < 8) {
+      var title = m[1].replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/\s+/g, " ").trim();
+      var cut = title.indexOf(" http");
+      if (cut > 0) title = title.slice(0, cut);
+      var url = m[2];
+      var lines = m[3].split("\n").map(function (l) { return l.trim(); }).filter(function (l) { return l && !/^!\[/.test(l) && !/^\[\]\(/.test(l); });
+      var host = "";
+      for (var k = 0; k < lines.length; k++) {
+        if (/^https?:\/\//.test(lines[k])) { host = lines[k].slice(0, 90); lines.splice(k, 1); break; }
+      }
+      var snip = [];
+      for (var j = 0; j < lines.length; j++) {
+        var ln = lines[j];
+        if (/^(Images|Videos|People also ask|Related searches)$/.test(ln)) break;
+        snip.push(ln);
+      }
+      snip = snip.join(" ").replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/[_*]/g, "").replace(/\s+/g, " ").trim().slice(0, 260);
+      if (title) out.push({ title: title.slice(0, 140), url: url, host: host, snip: snip });
+    }
+    return out;
+  }
+
+  function gRender(q, items) {
+    var html = '<div class="g-res-top">Google natijalari: ' + gEsc(q) + ' — havolalar yangi tabda ochiladi &#8599;</div>';
+    items.forEach(function (it) {
+      html += '<a class="g-item" href="' + gEsc(it.url) + '" target="_blank" rel="noopener">' +
+        '<div class="g-i-title">' + gEsc(it.title) + "</div>" +
+        (it.host ? '<div class="g-i-host">' + gEsc(it.host) + "</div>" : "") +
+        (it.snip ? '<div class="g-i-snip">' + gEsc(it.snip) + "</div>" : "") +
+        "</a>";
+    });
+    if (gRes) { gRes.innerHTML = html; gRes.hidden = false; }
+  }
+
+  function gLoadDone() { if (gLoad) gLoad.hidden = true; }
+  function gShowHint() {
+    if (gRes) { gRes.hidden = true; gRes.innerHTML = ""; }
+    gLoadDone();
+    if (gFrame) { gFrame.src = "about:blank"; gFrame.style.display = "block"; }
+    if (gHint) gHint.hidden = false;
+  }
+
+  function gFetchText(url, attempt) {
+    var ctrl = ("AbortController" in window) ? new AbortController() : null;
+    var to = setTimeout(function () { if (ctrl) ctrl.abort(); }, 25000);
+    return fetch(url, ctrl ? { signal: ctrl.signal } : {}).then(function (r) {
+      clearTimeout(to);
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.text();
+    }).then(function (t) {
+      if (/unusual traffic|not really you sending|recaptcha/i.test(t)) throw new Error("captcha");
+      return t;
+    }).catch(function (e) {
+      clearTimeout(to);
+      if (attempt < 2 && e.message !== "http 429") {
+        return new Promise(function (res) { setTimeout(res, 1500 * (attempt + 1)); }).then(function () { return gFetchText(url, attempt + 1); });
+      }
+      throw e;
+    });
+  }
+
+  function gSearch(q) {
+    q = (q || "").trim();
+    if (!q) return false;
+    var url = "https://www.google.com/search?q=" + encodeURIComponent(q) + "&igu=1";
+    var src = "https://www.google.com/search?q=" + encodeURIComponent(q);
+    if (gNew) gNew.href = "https://www.google.com/search?q=" + encodeURIComponent(q);
+    var id = ++gSeq;
+    if (gRes) { gRes.hidden = true; gRes.innerHTML = ""; }
+    if (gHint) gHint.hidden = true;
+    if (gFrame) gFrame.src = "about:blank";
+    if (gLoad) gLoad.hidden = false;
+    gFetchText("https://r.jina.ai/" + encodeURIComponent(src), 0).then(function (md) {
+      if (id !== gSeq) return;
+      var items = parseGoogle(md);
+      if (!items.length) throw new Error("empty");
+      gLoadDone();
+      gRender(q, items);
+      if (gRes && gRes.scrollTop !== undefined) gRes.scrollTop = 0;
+    }).catch(function () {
+      if (id !== gSeq) return;
+      gLoadDone();
+      if (gRes) { gRes.hidden = true; gRes.innerHTML = ""; }
+      if (gFrame) { gHint && (gHint.hidden = true); gFrame.style.display = "block"; gFrame.src = url; }
+    });
+    return true;
+  }
+
+  function openGoogle(q) {
+    if (!gpanel) return;
+    closeTerm();
+    gpanel.hidden = false;
+    if (q && gSearch(q)) {
+      /* natijalar yuklanmoqda */
+    } else {
+      gShowHint();
+      if (gNew) gNew.href = "https://www.google.com/";
+      if (gInput) gInput.focus();
+    }
+  }
+  function closeGoogle() {
+    if (gpanel) gpanel.hidden = true;
+  }
+
+  if (gInput) {
+    gInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") gSearch(gInput.value);
+    });
+  }
+  var gBtn = document.getElementById("gBtn");
+  if (gBtn) gBtn.addEventListener("click", function () { gSearch(gInput.value); });
+  var gX = document.getElementById("gX");
+  if (gX) gX.addEventListener("click", closeGoogle);
+
   document.addEventListener("keydown", function (e) {
     if (e.key && e.key.length === 1) {
       typed = (typed + e.key.toLowerCase()).slice(-secret.length);
       if (typed === secret && term && term.hidden) { openTerm(); typed = ""; }
-    } else if (e.key === "Escape" && term && !term.hidden) {
-      closeTerm();
+    } else if (e.key === "Escape") {
+      if (gpanel && !gpanel.hidden) closeGoogle();
+      else if (term && !term.hidden) closeTerm();
     }
   });
 
   document.getElementById("termX").addEventListener("click", closeTerm);
+  var openBtn = document.getElementById("termOpen");
+  if (openBtn) openBtn.addEventListener("click", openTerm);
 
   input.addEventListener("keydown", function (e) {
     if (e.key !== "Enter") return;
-    var cmd = input.value.trim().toLowerCase();
+    var raw = input.value.trim();
+    var cmd = raw.toLowerCase();
     print('<span class="prompt">abdulaziz@portfolio:~$</span> ' + cmd.replace(/[<>&]/g, ""));
     input.value = "";
     if (cmd === "help") {
-      print("Mavjud buyruqlar: <b>about</b>, <b>skills</b>, <b>clear</b>, <b>exit</b>");
+      print("Mavjud buyruqlar: <b>about</b>, <b>skills</b>, <b>google</b>, <b>clear</b>, <b>exit</b>");
+      print('google <b>&lt;so\'rov&gt;</b> — Google\'da qidirish, natijalar sayt ichida pastda ochiladi (masalan: google javascript)');
     } else if (cmd === "about") {
       print("Abdulaziz - 11 yoshli Full-Stack dasturchi. Samarqand, Oqdaryo tumanidan.");
     } else if (cmd === "skills") {
@@ -2155,6 +2358,18 @@ window.addEventListener("load", function () {
       body.innerHTML = "";
     } else if (cmd === "exit") {
       closeTerm();
+    } else if (cmd === "google") {
+      openGoogle("");
+      print("Google paneli pastda ochildi — so'rovni unga yozing.");
+    } else if (cmd.indexOf("google ") === 0) {
+      var q = raw.slice(7).trim();
+      if (q) {
+        openGoogle(q);
+        print('Google: <b>' + q.replace(/[<>&]/g, "") + '</b> — natijalar sayt ichida pastda.');
+      } else {
+        openGoogle("");
+        print("Google: qidiruv so'rovi yozing — <b>google dasturlash</b>");
+      }
     } else if (cmd === "") {
       /* bo'sh */
     } else {
