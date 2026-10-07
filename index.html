@@ -87,15 +87,34 @@
 })();
 </script>
 <script>
-/* Devtools (F12/ctrl+shift+I/J/C, ctrl+U) va kontekst menyusini bloklash */
+/* Devtools (F12/ctrl+shift+I/J/C, ctrl+U) va kontekst menyusini bloklash + "dnx fuck" ikonkasi */
 (function () {
   function blk(e) { e.preventDefault(); return false; }
+  var t = null, h = 0;
+  function dnxFuck() {
+    if (!document.body) return;
+    if (!t || !t.isConnected) {
+      t = document.createElement("div");
+      t.id = "devToast";
+      t.style.cssText = "position:fixed;top:22px;left:50%;transform:translate(-50%,-24px);z-index:99999;padding:13px 24px;border-radius:16px;background:rgba(10,12,28,.96);border:1px solid rgba(255,60,60,.55);color:#fff;font:700 16px/1.2 'Segoe UI',system-ui,sans-serif;letter-spacing:.6px;box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 28px rgba(255,50,50,.35);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;display:flex;align-items:center;gap:10px;white-space:nowrap";
+      t.innerHTML = '<span style="font-size:22px">😈</span><b>dnx fuck</b>';
+      document.body.appendChild(t);
+    }
+    t.style.opacity = "1";
+    t.style.transform = "translate(-50%,0)";
+    clearTimeout(h);
+    h = setTimeout(function () {
+      t.style.opacity = "0";
+      t.style.transform = "translate(-50%,-24px)";
+    }, 2400);
+  }
   document.addEventListener("contextmenu", blk);
   document.addEventListener("keydown", function (e) {
     var k = e.keyCode || e.which;
-    if (k === 123) return blk(e);                       /* F12 */
-    if (e.ctrlKey && e.shiftKey && (k === 73 || k === 74 || k === 67)) return blk(e); /* I,J,C */
-    if (e.ctrlKey && k === 85) return blk(e);           /* Ctrl+U */
+    var hit = k === 123 ||                                          /* F12 */
+      (e.ctrlKey && e.shiftKey && (k === 73 || k === 74 || k === 67)) || /* Ctrl+Shift+I/J/C */
+      (e.ctrlKey && k === 85);                                      /* Ctrl+U */
+    if (hit) { blk(e); dnxFuck(); return false; }
   });
 })();
 </script>
