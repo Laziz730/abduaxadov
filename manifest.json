@@ -1,0 +1,26 @@
+{
+  "name": "Abdulaziz Abduahadov — Portfolio",
+  "short_name": "Az.dev",
+  "description": "11 yoshli Full-Stack dasturchi portfoliosi — loyihalar, xizmatlar, CV va aloqa.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#05060f",
+  "theme_color": "#7c3aed",
+  "lang": "uz",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

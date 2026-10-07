@@ -41,6 +41,7 @@
 <meta name="twitter:description" content="Java, Frontend, Backend, Telegram bot va Full-Stack yo'nalishida ishlaydigan yosh dasturchi." />
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="manifest" href="manifest.json" />
 <meta name="application-name" content="Abdulaziz Portfolio" />
 <meta name="format-detection" content="telephone=no" />
 
@@ -64,7 +65,7 @@
 </script>
 
 <script>
-(function(){try{var t=localStorage.getItem("th");if(t)document.documentElement.setAttribute("data-theme",t);var l=localStorage.getItem("lang")||"uz";document.documentElement.setAttribute("lang",l||"uz");}catch(e){}})();
+(function(){try{var t=localStorage.getItem("th");if(t)document.documentElement.setAttribute("data-theme",t);var l=localStorage.getItem("lang")||"uz";document.documentElement.setAttribute("lang",l||"uz");if(localStorage.getItem("party")==="1")document.documentElement.classList.add("party");}catch(e){}})();
 /* YUKLANGANDA HERO FON — birinchi ochilishda tasodifiy (0-12), keyin saqlangan foan SAQLANIB QOLADI (o'z-o'zidan o'tmaydi) */
 (function(){
   function applyBg(){
@@ -717,9 +718,54 @@
   @media (max-width:360px){
     .bg-btn{display:none}
   }
+
+  /* ===== PRELOADER ===== */
+  #preloader{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;
+    background:#05060f;transition:opacity .45s,visibility .45s}
+  html[data-theme="light"] #preloader{background:#f4f5fc}
+  #preloader.off{opacity:0;visibility:hidden;pointer-events:none}
+  .pl-box{display:flex;flex-direction:column;align-items:center;gap:18px}
+  .pl-logo{font-size:2.2rem;font-weight:800;color:#eef1ff}
+  html[data-theme="light"] .pl-logo{color:#0b0d1c}
+  .pl-bar{width:150px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}
+  .pl-bar i{display:block;height:100%;width:40%;border-radius:4px;background:linear-gradient(90deg,#7c3aed,#22d3ee);animation:plrun 1s ease-in-out infinite}
+  @keyframes plrun{0%{transform:translateX(-100%)}100%{transform:translateX(375%)}}
+
+  /* ===== COMMAND PALETTE (Ctrl+K) ===== */
+  .cpal{position:fixed;inset:0;z-index:120;display:flex;align-items:flex-start;justify-content:center;
+    padding:12vh 16px 16px;background:rgba(3,4,12,.6);backdrop-filter:blur(6px)}
+  .cpal-box{width:min(560px,100%);background:var(--card2);border:1px solid var(--line);border-radius:16px;
+    overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:cpIn .18s ease}
+  @keyframes cpIn{from{opacity:0;transform:translateY(-10px) scale(.98)}to{opacity:1;transform:none}}
+  .cpal-in{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .cpal-in .ic{width:18px;height:18px;color:var(--muted);flex:none}
+  .cpal-in input{flex:1;background:none;border:none;outline:none;color:var(--text);font-size:1rem;font-family:inherit;min-width:0}
+  .cpal-list{max-height:min(52vh,420px);overflow-y:auto;overscroll-behavior:contain;padding:8px}
+  .cpal-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;cursor:pointer;color:var(--text);font-size:.95rem}
+  .cpal-item .ic{width:17px;height:17px;color:var(--muted);flex:none}
+  .cpal-item small{margin-left:auto;color:var(--muted);font-size:.75rem;letter-spacing:.04em}
+  .cpal-item.on{background:rgba(124,58,237,.18);outline:1px solid rgba(124,58,237,.4)}
+  .cpal-empty{padding:16px;text-align:center;color:var(--muted);font-size:.9rem}
+  .cpal-hint{padding:8px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:.75rem;letter-spacing:.04em}
+  .cpal[hidden]{display:none}
+  html[data-theme="light"] .cpal-box{background:#fff}
+
+  /* ===== MATRIX FX ===== */
+  #matrixFx{position:fixed;inset:0;z-index:99998;background:#000;display:block}
+
+  /* ===== PARTY MODE (Konami) ===== */
+  html.party .grad,html.party .btn-primary,html.party .nav-cta,html.party .logo .grad,
+  html.party .s-icon,html.party .c-icon,html.party .p-ico,html.party .tl-dot,html.party .tick,
+  html.party .sec-kicker .kico,html.party .feat span,html.party .serv-ico{animation:partyHue 3s linear infinite}
+  @keyframes partyHue{to{filter:hue-rotate(360deg)}}
+  html.party body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2;
+    background:conic-gradient(from 0deg,rgba(255,0,128,.16),rgba(255,200,0,.14),rgba(0,255,120,.16),rgba(0,180,255,.16),rgba(160,0,255,.16),rgba(255,0,128,.16));
+    animation:partySpin 8s linear infinite;mix-blend-mode:screen}
+  @keyframes partySpin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
+<div id="preloader" aria-hidden="true"><div class="pl-box"><span class="pl-logo">Az<span class="grad">.</span>dev</span><span class="pl-bar"><i></i></span></div></div>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></g></symbol>
   <symbol id="i-coffee" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></g></symbol>
@@ -1258,7 +1304,7 @@
   <p style="margin-top:8px">Made with <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> + <svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg> in Uzbekistan</p>
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> <span data-i18n="footer.uz">O'zbekiston:</span> <b id="uztime">--:--:--</b></p>
   <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> <span data-i18n="footer.visits">Saytga kirganlar:</span> <img src="https://hits.sh/abduahadov.wwwi.uz.svg?label=&color=7c3aed&style=flat-square&logoColor=white" alt="0" style="vertical-align:middle;height:18px;border-radius:4px" loading="lazy" /></p>
-  <p style="margin-top:10px"><button type="button" class="term-open" id="termOpen" title="Dasturchi terminali">&#9656; Terminal</button></p>
+  <p style="margin-top:10px"><button type="button" class="term-open" id="termOpen" title="Dasturchi terminali">&#9656; Terminal</button> <button type="button" class="term-open" id="cpalOpen" title="Buyruqlar paneli">&#8984; Ctrl+K</button></p>
   <p style="margin-top:8px;font-size:.82rem;opacity:.75;letter-spacing:.04em"><b>Portfolio</b> — v1.0.0</p>
 </footer>
 
@@ -1322,6 +1368,15 @@
   <a href="#services"><span><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg></span><span data-i18n="nav.services">Xizmatlar</span></a>
   <a href="#projects"><span><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg></span><span data-i18n="nav.projects">Loyihalar</span></a>
   <a href="#contact"><span><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg></span><span data-i18n="nav.contact">Aloqa</span></a>
+</div>
+
+<!-- ===== COMMAND PALETTE (Ctrl+K) ===== -->
+<div id="cpal" class="cpal" hidden>
+  <div class="cpal-box" role="dialog" aria-label="Buyruqlar">
+    <div class="cpal-in"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="cpalInput" type="text" placeholder="Bo'lim yoki buyruq qidiring..." autocomplete="off" spellcheck="false" aria-label="Buyruq qidirish" /></div>
+    <div class="cpal-list" id="cpalList" role="listbox"></div>
+    <div class="cpal-hint">&#8593;&#8595; tanlash &middot; Enter bajarish &middot; Esc yopish</div>
+  </div>
 </div>
 
 <script src="vendor/qrcode.min.js"></script>
@@ -1852,8 +1907,8 @@
     });
   }
 
-  /* BAXOLAR (kvdb.io saqlash + Telegram miror) */
-  var RATE_URL = "https://kvdb.io/NdQiUbhBqJfHqNCqu85oFD/ratings";
+  /* BAXOLAR (backend /api/rating orqali — kvdb tokeni serverda) */
+  var RATE_URL = "/api/rating";
   var rateStarsEl = document.getElementById("rateStars");
   var rateCmtEl = document.getElementById("rateCmt");
   var rateSendEl = document.getElementById("rateSend");
@@ -1903,13 +1958,12 @@
   function loadRatings() {
     if (!rateListEl) return;
     fetch(RATE_URL, { cache: "no-store" })
-      .then(function (r) { return r.text(); })
-      .then(function (txt) {
-        try { rateCache = JSON.parse(txt); } catch (e) { rateCache = []; }
-        if (!Array.isArray(rateCache)) rateCache = [];
+      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (d) {
+        rateCache = (d && Array.isArray(d.ratings)) ? d.ratings : [];
         renderRatings(rateCache);
       })
-      .catch(function () { rateListEl.innerHTML = rateEmpty(); });
+      .catch(function () { rateCache = []; rateListEl.innerHTML = rateEmpty(); });
   }
   function saveRating() {
     if (!selStar) {
@@ -1931,9 +1985,13 @@
     rateSendEl.disabled = true;
     rateFbEl.className = "rate-feedback";
     rateFbEl.textContent = "…";
-    fetch(RATE_URL, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(rateCache.concat([rec])), cache: "no-store" })
+    fetch(RATE_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ stars: rec.s, comment: rec.c, lang: savedLang }) })
       .then(function (r) {
-        if (!r.ok) throw new Error("kvdb " + r.status);
+        if (!r.ok) throw new Error("http " + r.status);
+        return r.json();
+      })
+      .then(function (d) {
+        if (!d || !d.ok) throw new Error("bad response");
         try { localStorage.setItem("rate1day", String(Date.now())); } catch (e2) {}
         rateCache.push(rec);
         renderRatings(rateCache);
@@ -1941,7 +1999,6 @@
         selStar = 0; paintStars();
         rateFbEl.className = "rate-feedback ok";
         rateFbEl.textContent = (L[savedLang] || L.uz)["ratings.thanks"] || "";
-        fetch("/api/rating", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ stars: rec.s, comment: rec.c, lang: savedLang }) }).catch(function () {});
       })
       .catch(function () {
         rateFbEl.className = "rate-feedback err";
@@ -2211,6 +2268,74 @@
   }
   setTimeout(detectByGeo, 1000);
 
+  /* ===== PRELOADER (yuklanish ekranini yashirish) ===== */
+  var plEl = document.getElementById("preloader");
+  function hidePl() {
+    if (plEl && !plEl.classList.contains("off")) {
+      plEl.classList.add("off");
+      setTimeout(function () { plEl.hidden = true; }, 500);
+    }
+  }
+  window.addEventListener("load", function () { setTimeout(hidePl, 300); });
+  setTimeout(hidePl, 2500);
+
+  /* ===== APP TOAST (palette / party / PWA bildirishnomalari) ===== */
+  function showAppToast(msg, ms) {
+    var el = document.getElementById("appToast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "appToast";
+      el.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translate(-50%,14px);z-index:99999;padding:11px 20px;border-radius:12px;background:rgba(10,12,28,.95);border:1px solid rgba(124,58,237,.5);color:#fff;font:600 14px/1.35 'Segoe UI',system-ui,sans-serif;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;text-align:center;max-width:88vw";
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.opacity = "1";
+    el.style.transform = "translate(-50%,0)";
+    clearTimeout(el._h);
+    el._h = setTimeout(function () { el.style.opacity = "0"; el.style.transform = "translate(-50%,14px)"; }, ms || 2600);
+  }
+
+  /* ===== KONAMI KOD — party mode ===== */
+  var KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+  var kPos = 0;
+  document.addEventListener("keydown", function (e) {
+    var k = (e.key && e.key.length === 1) ? e.key.toLowerCase() : e.key;
+    if (k === KONAMI[kPos]) {
+      kPos++;
+      if (kPos === KONAMI.length) { kPos = 0; setParty(!document.documentElement.classList.contains("party")); }
+    } else {
+      kPos = (k === KONAMI[0]) ? 1 : 0;
+    }
+  });
+  function setParty(on) {
+    document.documentElement.classList.toggle("party", on);
+    try { localStorage.setItem("party", on ? "1" : "0"); } catch (e) {}
+    showAppToast(on ? "🎉 Party mode yoqildi!" : "Party mode o'chirildi");
+  }
+  try { if (localStorage.getItem("party") === "1") document.documentElement.classList.add("party"); } catch (e) {}
+
+  /* ===== PWA: service worker ===== */
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
+
+  /* ===== Cross-scope ko'prich (terminal / palette / matn buyruqlari uchun) ===== */
+  window.__app = {
+    setTheme: setTheme,
+    applyLang: applyLang,
+    cycleBg: cycleBg,
+    toast: showAppToast,
+    sound: function () {
+      sndOn = !sndOn;
+      if (sndHint) sndHint.hidden = true;
+      if (sndOn) { if (sndInView) sndPlay(); } else if (sndEl) sndEl.pause();
+      paintSnd();
+      return sndOn;
+    }
+  };
+
   })();
 </script>
 <script>
@@ -2390,6 +2515,49 @@ window.addEventListener("load", function () {
   var gX = document.getElementById("gX");
   if (gX) gX.addEventListener("click", closeGoogle);
 
+  /* ===== MATRIX REJIMI (matrix buyrug'i) ===== */
+  var mxCv = null, mxRaf = 0;
+  function matrixStart() {
+    if (mxCv) return;
+    mxCv = document.createElement("canvas");
+    mxCv.id = "matrixFx";
+    document.body.appendChild(mxCv);
+    var ctx = mxCv.getContext("2d");
+    var fontSize = 16;
+    var cols = Math.floor(window.innerWidth / fontSize);
+    var drops = [];
+    for (var i = 0; i < cols; i++) drops[i] = Math.random() * -50;
+    mxCv.width = window.innerWidth;
+    mxCv.height = window.innerHeight;
+    var chars = "ABDULAZIZ0123456789ABCDEF$#@%&*+-<>";
+    function frame() {
+      if (!mxCv) return;
+      ctx.fillStyle = "rgba(0,0,0,.08)";
+      ctx.fillRect(0, 0, mxCv.width, mxCv.height);
+      ctx.fillStyle = "#33ff66";
+      ctx.font = fontSize + "px monospace";
+      for (var i = 0; i < drops.length; i++) {
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > mxCv.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+      mxRaf = requestAnimationFrame(frame);
+    }
+    mxRaf = requestAnimationFrame(frame);
+    print('<span style="color:#33ff66">Matrix rejimi yoqildi — Esc yoki click bilan chiqing.</span>');
+  }
+  function matrixStop() {
+    if (!mxCv) return;
+    cancelAnimationFrame(mxRaf);
+    mxCv.remove();
+    mxCv = null;
+  }
+  function toggleMatrix() { if (mxCv) matrixStop(); else matrixStart(); }
+  document.addEventListener("keydown", function (e) {
+    if (mxCv && (e.key === "Escape" || e.key === "q" || e.key === "Q")) { matrixStop(); e.stopPropagation(); }
+  }, true);
+  document.addEventListener("pointerdown", function () { if (mxCv) matrixStop(); });
+
   document.addEventListener("keydown", function (e) {
     if (e.key && e.key.length === 1) {
       var tgt = e.target;
@@ -2415,7 +2583,8 @@ window.addEventListener("load", function () {
     print('<span class="prompt">abdulaziz@portfolio:~$</span> ' + cmd.replace(/[<>&]/g, ""));
     input.value = "";
     if (cmd === "help") {
-      print("Mavjud buyruqlar: <b>about</b>, <b>skills</b>, <b>google</b>, <b>clear</b>, <b>exit</b>");
+      print("Mavjud buyruqlar: <b>about</b>, <b>skills</b>, <b>google</b>, <b>cv</b>, <b>theme</b>, <b>lang</b>, <b>music</b>, <b>matrix</b>, <b>github</b>, <b>telegram</b>, <b>clear</b>, <b>exit</b>");
+      print('theme <b>dark|light</b> — tema; lang <b>uz|en|ru</b> — til; matrix — matrix yomgiri effekti (Esc/chap bosish bilan chiqish)');
       print('google <b>&lt;so\'rov&gt;</b> — Google\'da qidirish, natijalar sayt ichida pastda ochiladi (masalan: google javascript)');
     } else if (cmd === "about") {
       print("Abdulaziz - 11 yoshli Full-Stack dasturchi. Samarqand, Oqdaryo tumanidan.");
@@ -2425,6 +2594,34 @@ window.addEventListener("load", function () {
       body.innerHTML = "";
     } else if (cmd === "exit") {
       closeTerm();
+    } else if (cmd === "theme" || cmd.indexOf("theme ") === 0) {
+      var th = cmd.slice(5).trim();
+      if (th === "light" || th === "dark") {
+        if (window.__app) window.__app.setTheme(th);
+        print("Tema o'zgartirildi: <b>" + th + "</b>");
+      } else {
+        print("Ishlatish: <b>theme dark</b> yoki <b>theme light</b>");
+      }
+    } else if (cmd === "lang" || cmd.indexOf("lang ") === 0) {
+      var lg = cmd.slice(4).trim();
+      if (lg === "uz" || lg === "en" || lg === "ru") {
+        if (window.__app) window.__app.applyLang(lg);
+        print("Til o'zgartirildi: <b>" + lg + "</b>");
+      } else {
+        print("Ishlatish: <b>lang uz</b> / <b>en</b> / <b>ru</b>");
+      }
+    } else if (cmd === "cv") {
+      print("CV yangi tabda ochilmoqda...");
+      window.open("cv.html", "_blank");
+    } else if (cmd === "github") {
+      print('<a href="https://github.com/Laziz730" target="_blank" rel="noopener">github.com/Laziz730</a>');
+    } else if (cmd === "telegram") {
+      print('<a href="https://t.me/Laziz_Abduahadov" target="_blank" rel="noopener">t.me/Laziz_Abduahadov</a>');
+    } else if (cmd === "music") {
+      var snd = window.__app && window.__app.sound ? window.__app.sound() : null;
+      print(snd === null ? "Ovoz tizimi mavjud emas." : (snd ? "Musiqa: <b>yoqildi</b>" : "Musiqa: <b>o'chirildi</b>"));
+    } else if (cmd === "matrix") {
+      toggleMatrix();
     } else if (cmd === "google") {
       openGoogle("");
       print("Google paneli pastda ochildi — so'rovni unga yozing.");
@@ -2490,6 +2687,23 @@ window.addEventListener("load", function () {
     return null;
   }
 
+  /* AI ishlamasa — lokal javoblar (offline fallback) */
+  function localAnswer(q) {
+    var s = " " + (q || "").toLowerCase() + " ";
+    if (/narx|price|qancha|pullik/.test(s)) return "Loyihalar bo'yicha narx suhbatda belgilanadi — Telegramga yozing: @Laziz_Abduahadov.";
+    if (/tel|telefon|raqam|number/.test(s)) return "Telegram: @Laziz_Abduahadov. Baxolardagi aloqa bo'limida ham raqamlar bor.";
+    if (/cv|resume|rezume/.test(s)) return "CV: yuqoridagi 'CV yuklab olish' tugmasi yoki terminalda cv buyrug'i.";
+    if (/sertifikat|certificate|diplom/.test(s)) return "Sertifikatlar bo'limi saytida — 'Sertifikatlar' bo'limiga o'ting.";
+    if (/loyiha|project/.test(s)) return "Loyihalar bo'limida 3D model, Telegram bot, AI chat va boshqa ishlarim bor.";
+    if (/xizmat|service|buyurtma/.test(s)) return "Xizmatlar bo'limida: sayt yaratish, bot, backend va 3D ishlar.";
+    if (/mahorat|skill|nima bil/.test(s)) return "Java, Frontend, Backend, Node.js, SQL, PWA, Rate Limiting, Three.js (3D).";
+    if (/aloqa|contact|bog/.test(s)) return "Telegram @Laziz_Abduahadov yoki saytdagi 'Aloqa' bo'limidan yozing.";
+    if (/o'zing|haqida|about|kimsan/.test(s)) return "Abdulaziz Abduahadov — 11 yoshli Full-Stack dasturchi, Samarqanddan.";
+    if (/vaqt|time/.test(s)) return "O'zbekiston vaqti saytning pastki qismida jonli ko'rsatiladi.";
+    if (/nima|what|qanday|how/.test(s)) return "Savolingizni batafsilroq yozing yoki Telegramda yozing: @Laziz_Abduahadov.";
+    return "AI hozircha javob bera olmayapti. Savolingizni Telegramda yozing: @Laziz_Abduahadov";
+  }
+
   function ask(text, isVoice) {
     var q = String(text || "").trim();
     if (!q) return;
@@ -2511,19 +2725,19 @@ window.addEventListener("load", function () {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ q: q })
-    }).then(function (r) { return r.json().catch(function () { return {}; }); })
+    }).then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
       .then(function (data) {
         t.classList.remove("ai-typing");
         if (data && data.ok && data.answer) {
           t.textContent = data.answer;
           if (data.nav) scrollToSection(data.nav);
         } else {
-          t.textContent = "Sanalan xatolik yuz berdi. Iltimos keyinroq urinib ko'ring yoki Telegram orqali yozing: @Laziz_Abduahadov.";
+          t.textContent = localAnswer(q);
         }
       })
       .catch(function () {
         t.classList.remove("ai-typing");
-        t.textContent = "Kechirasiz, AI hozircha javob bera olmadi. Telegram orqali yozing: @Laziz_Abduahadov.";
+        t.textContent = localAnswer(q);
       });
   }
 
@@ -2566,6 +2780,90 @@ window.addEventListener("load", function () {
 
   send.addEventListener("click", function () { ask(input.value, false); });
   input.addEventListener("keydown", function (e) { if (e.key === "Enter") ask(input.value, false); });
+})();
+</script>
+<script>
+/* ===== COMMAND PALETTE (Ctrl+K) ===== */
+(function () {
+  var pal = document.getElementById("cpal");
+  var inp = document.getElementById("cpalInput");
+  var list = document.getElementById("cpalList");
+  if (!pal || !inp || !list) return;
+  var app = window.__app || {};
+
+  function go(id) {
+    closePal();
+    var el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: "instant", block: "start" }); try { history.replaceState(null, "", "#" + id); } catch (e) {} }
+  }
+
+  var ITEMS = [
+    { t: "Haqimda", i: "i-user", k: "about men profile bio haqida", go: "about" },
+    { t: "Mahorat", i: "i-zap", k: "skills texnologiya stack mahorat", go: "skills" },
+    { t: "Xizmatlar", i: "i-briefcase", k: "services xizmat buyurtma narx", go: "services" },
+    { t: "Jarayon", i: "i-gear", k: "process qanday ishlaydi bosqich", go: "process" },
+    { t: "Loyihalar", i: "i-grid", k: "projects loyiha ishlar portfolio", go: "projects" },
+    { t: "3D model", i: "i-cube", k: "3d three model threejs", go: "threed" },
+    { t: "Sertifikatlar", i: "i-award", k: "certs sertifikat diplom", go: "certs" },
+    { t: "Yo'l xaritasi", i: "i-clock", k: "timeline tarix journey", go: "timeline" },
+    { t: "Savollar", i: "i-help", k: "faq savol", go: "faq" },
+    { t: "Aloqa", i: "i-chat", k: "contact aloqa boglanish yozish", go: "contact" },
+    { t: "Reytinglar", i: "i-star", k: "rating reyting baho baholash", go: "ratings" },
+    { t: "Tema: dark / light", i: "i-moon", k: "theme tema dark light rang", fn: function () { if (app.setTheme) app.setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"); } },
+    { t: "Til: uz / en / ru", i: "i-cap", k: "lang til language uz en ru", fn: function () { if (app.applyLang) { var c = document.documentElement.getAttribute("lang") || "uz"; app.applyLang(c === "uz" ? "en" : c === "en" ? "ru" : "uz"); } } },
+    { t: "CV ochish", i: "i-file", k: "cv resume rezyume yuklab", fn: function () { window.open("cv.html", "_blank"); } },
+    { t: "Terminalni ochish", i: "i-code", k: "terminal cmd console buyruq", fn: function () { var b = document.getElementById("termOpen"); if (b) b.click(); } },
+    { t: "Fon rangini almashtirish", i: "i-layers", k: "bg fon rang color gradient", fn: function () { if (app.cycleBg) app.cycleBg(); } },
+    { t: "Google ochish", i: "i-search", k: "google qidiruv search", fn: function () { window.open("https://www.google.com/", "_blank"); } },
+    { t: "Telegram", i: "i-plane", k: "telegram", fn: function () { window.open("https://t.me/Laziz_Abduahadov", "_blank"); } },
+    { t: "GitHub", i: "i-octocat", k: "github", fn: function () { window.open("https://github.com/Laziz730", "_blank"); } },
+    { t: "Yuqoriga", i: "i-up", k: "top yuqoriga tepaga boshiga", fn: function () { window.scrollTo({ top: 0, behavior: "instant" }); } }
+  ];
+
+  var shown = ITEMS.slice(), sel = 0;
+  function esc(s) { return String(s).replace(/[<>&]/g, function (m) { return m === "<" ? "&lt;" : m === ">" ? "&gt;" : "&amp;"; }); }
+  function render() {
+    var q = inp.value.trim().toLowerCase();
+    shown = q ? ITEMS.filter(function (it) { return (it.t + " " + (it.k || "")).toLowerCase().indexOf(q) !== -1; }) : ITEMS.slice();
+    if (!shown.length) { list.innerHTML = '<div class="cpal-empty">Hech narsa topilmadi</div>'; return; }
+    if (sel >= shown.length) sel = 0;
+    list.innerHTML = shown.map(function (it, idx) {
+      return '<div class="cpal-item' + (idx === sel ? " on" : "") + '" data-i="' + idx + '" role="option"><svg class="ic" aria-hidden="true"><use href="#' + it.i + '"/></svg><span>' + esc(it.t) + '</span><small>' + (it.go ? "bo'lim" : "buyruq") + "</small></div>";
+    }).join("");
+    var on = list.querySelector(".cpal-item.on");
+    if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest" });
+  }
+  function run(it) {
+    if (!it) return;
+    closePal();
+    if (it.go) go(it.go); else if (it.fn) it.fn();
+  }
+  function openPal() {
+    pal.hidden = false;
+    inp.value = ""; sel = 0; render();
+    inp.focus();
+  }
+  function closePal() { pal.hidden = true; }
+
+  document.addEventListener("keydown", function (e) {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      if (pal.hidden) openPal(); else closePal();
+    } else if (!pal.hidden) {
+      if (e.key === "Escape") { e.preventDefault(); closePal(); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, Math.max(shown.length - 1, 0)); render(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(sel - 1, 0); render(); }
+      else if (e.key === "Enter") { e.preventDefault(); run(shown[sel]); }
+    }
+  });
+  inp.addEventListener("input", function () { sel = 0; render(); });
+  list.addEventListener("click", function (e) {
+    var t = e.target && e.target.closest ? e.target.closest(".cpal-item") : null;
+    if (t) run(shown[parseInt(t.getAttribute("data-i"), 10)]);
+  });
+  pal.addEventListener("mousedown", function (e) { if (e.target === pal) closePal(); });
+  var op = document.getElementById("cpalOpen");
+  if (op) op.addEventListener("click", openPal);
 })();
 </script>
 </body>
