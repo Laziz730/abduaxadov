@@ -150,7 +150,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   .ic{width:1em;height:1em;display:inline-block;vertical-align:-.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-  .s-icon .ic,.serv-ico .ic,.p-ico .ic,.tl-dot .ic{width:1.5rem;height:1.5rem}
+  .s-icon .ic,.serv-ico .ic,.p-ico .ic{width:1.5rem;height:1.5rem}
   .btn .ic{width:1.08em;height:1.08em}
   .chip .ic{width:1.55rem;height:1.55rem;color:var(--cyan)}
   .theme-btn .ic{width:1.15rem;height:1.15rem}
@@ -405,18 +405,6 @@
   .model-stage model-viewer{width:100%;height:100%;display:block;--poster-color:transparent}
   .model small{display:block;text-align:center;font-size:.83rem;font-weight:700;padding:10px 4px 6px;color:var(--muted)}
 
-  /* TIMELINE */
-  .tl{position:relative;max-width:780px;margin:0 auto;padding-left:20px}
-  .tl::before{content:"";position:absolute;left:39px;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--grad)}
-  .tl-item{position:relative;padding-left:82px;padding-bottom:34px}
-  .tl-dot{position:absolute;left:0;top:0;width:54px;height:54px;border-radius:50%;background:var(--card2);
-    border:2px solid var(--violet);display:flex;align-items:center;justify-content:center;font-size:1.25rem;
-    box-shadow:0 0 24px rgba(var(--acc-rgb),.45)}
-  .tl-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 26px}
-  .tl-date{display:inline-block;background:var(--grad);color:#fff;font-size:.78rem;font-weight:700;padding:5px 15px;border-radius:50px;margin-bottom:10px}
-  .tl-card h3{font-size:1.06rem;margin-bottom:5px}
-  .tl-card p{color:var(--muted);font-size:.9rem}
-
   /* RATINGS */
   .rate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
   .rate-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
@@ -546,17 +534,6 @@
   .techs span{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:9px 16px;font-size:.86rem;font-weight:700;transition:transform .2s,border-color .2s}
   .techs span:hover{transform:translateY(-4px);border-color:var(--violet)}
-
-  /* FAQ */
-  .faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
-  .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;
-    font-weight:700;font-size:1rem;padding:20px 24px}
-  .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";font-size:1.5rem;font-weight:600;color:var(--cyan);transition:transform .3s;flex-shrink:0}
-  .faq details{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:border-color .25s}
-  .faq details[open]{border-color:rgba(var(--acc-rgb),.45)}
-  .faq details[open] summary::after{transform:rotate(45deg)}
-  .faq .a{color:var(--muted);font-size:.92rem;padding:0 24px 22px}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-size:.9rem}
@@ -700,7 +677,6 @@
     .langs{order:-1}
     .form-grid{grid-template-columns:1fr}
     .checks,.info-grid{grid-template-columns:1fr}
-    .tl-item{padding-left:72px}
     .proc-grid{grid-template-columns:1fr 1fr}
     .mnav{display:flex}
     .fab{bottom:74px}
@@ -757,7 +733,7 @@
 
   /* ===== PARTY MODE (Konami) ===== */
   html.party .grad,html.party .btn-primary,html.party .nav-cta,html.party .logo .grad,
-  html.party .s-icon,html.party .c-icon,html.party .p-ico,html.party .tl-dot,html.party .tick,
+  html.party .s-icon,html.party .c-icon,html.party .p-ico,html.party .tick,
   html.party .sec-kicker .kico,html.party .feat span,html.party .serv-ico{animation:partyHue 3s linear infinite}
   @keyframes partyHue{to{filter:hue-rotate(360deg)}}
   html.party body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2;
@@ -787,21 +763,6 @@
   .math-q{font-weight:700;color:var(--text);font-size:.95rem;background:var(--card2);border:1px solid var(--line);padding:10px 15px;border-radius:10px}
   .math-row input{width:96px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px 12px;font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
   .math-row input:focus{border-color:var(--violet)}
-
-  /* ===== BLOG ===== */
-  .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:18px}
-  .blog-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;transition:transform .25s,border-color .25s;color:var(--text);overflow:hidden}
-  .blog-card:hover{transform:translateY(-4px);border-color:rgba(var(--acc-rgb),.55)}
-  .blog-card[open]{border-color:var(--violet)}
-  .blog-card summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:10px}
-  .blog-card summary::-webkit-details-marker{display:none}
-  .blog-card summary h3{font-size:1.03rem;line-height:1.4}
-  .blog-meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.78rem;letter-spacing:.04em;flex-wrap:wrap}
-  .blog-tag{background:rgba(var(--acc-rgb),.15);color:var(--violet);padding:3px 11px;border-radius:999px;font-size:.72rem;font-weight:700}
-  .blog-body{margin-top:14px;color:var(--muted);font-size:.92rem;line-height:1.7;white-space:pre-line}
-  .blog-more{color:var(--violet);font-weight:700;font-size:.82rem;margin-top:4px}
-  .blog-card[open] .blog-more{display:none}
-  .blog-empty{color:var(--muted);padding:24px;text-align:center;grid-column:1/-1}
 
   /* ===== STATISTIKA PANELI (egasi uchun — terminal: stats) ===== */
   .stats{position:fixed;inset:0;z-index:130;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(3,4,12,.65);backdrop-filter:blur(6px)}
@@ -860,7 +821,6 @@
   <symbol id="i-mut" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M22 9l-6 6"/><path d="M16 9l6 6"/></g></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></g></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></g></symbol>
-  <symbol id="i-help" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></g></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></g></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></g></symbol>
@@ -898,8 +858,6 @@
     <li><a href="#services" data-i18n="nav.services">Xizmatlar</a></li>
     <li><a href="#projects" data-i18n="nav.projects">Loyihalar</a></li>
     <li><a href="#certs" data-i18n="nav.certs">Sertifikatlar</a></li>
-    <li><a href="#timeline" data-i18n="nav.timeline">Yo'l</a></li>
-    <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
     <li><a href="#contact" data-i18n="nav.contact">Aloqa</a></li>
   </ul>
   <div class="nav-right">
@@ -1212,83 +1170,6 @@
   </div>
 </section>
 
-<section id="timeline" style="background:var(--bg2);border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker"><svg class="ic kico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="timeline.kicker">Journey / Yo'l</span></div>
-        <h2 data-i18n-html="timeline.title"><span data-i18n="timeline.title1">Rivojlanish</span> <span class="grad" data-i18n="timeline.title2">taqdimoti</span></h2>
-      </div>
-      <div class="sec-right" data-i18n="timeline.right">Kichik yoshdan to shu kungacha — qisqa tarix.</div>
-    </div>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></div>
-        <div class="tl-card"><span class="tl-date">21-may 2015</span><h3 data-i18n="timeline.t1t">Tavallud</h3>
-          <p data-i18n="timeline.t1p">Samarqand viloyati, Oqdaryo tumanida dunyoga keldim.</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg></div>
-        <div class="tl-card"><span class="tl-date">2020</span><h3 data-i18n="timeline.t2t">IT bilan tanishuv</h3>
-          <p data-i18n="timeline.t2p">5 yoshimda otam sababli kompyuter va texnologiyalarga qiziqib qoldim.</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg></div>
-        <div class="tl-card"><span class="tl-date">2025</span><h3 data-i18n="timeline.t3t">Full-Stack kurs tugatildi</h3>
-          <p data-i18n="timeline.t3p">Frontend, Backend, Database va API bo'yicha to'liq kursni tamomladim.</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg></div>
-        <div class="tl-card"><span class="tl-date">2026</span><h3 data-i18n="timeline.t4t">Java chuqurlashuvi</h3>
-          <p data-i18n="timeline.t4p">Java dasturlash tilini chuqurlashtiryapman, yangi loyihalar yaratmoqdaman.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker"><svg class="ic kico" aria-hidden="true"><use href="#i-help"/></svg><span data-i18n="faq.kicker">FAQ / Savollar</span></div>
-        <h2 data-i18n-html="faq.title"><span data-i18n="faq.title1">Tez-tez</span> <span class="grad" data-i18n="faq.title2">so'raladi</span></h2>
-      </div>
-      <div class="sec-right" data-i18n="faq.right">Ko'pchilik so'raydigan savollarga javoblar.</div>
-    </div>
-    <div class="faq">
-      <details>
-        <summary data-i18n="faq.q1">Qancha yoshdasiz va qayerda yashaysiz?</summary>
-        <div class="a" data-i18n="faq.a1">Men 2015-yilda 21-mayda Samarqand viloyati, Oqdaryo tumanida tug'ilganman va shu yerda yashayman.</div>
-      </details>
-      <details>
-        <summary data-i18n="faq.q2">Qanday texnologiyalarni bilasiz?</summary>
-        <div class="a" data-i18n="faq.a2">HTML, CSS, JavaScript, TypeScript, Java, SQL hamda REST API va Telegram API bilan ishlayman.</div>
-      </details>
-      <details>
-        <summary data-i18n="faq.q3">Qanday loyihalarni qabul qilasiz?</summary>
-        <div class="a" data-i18n="faq.a3">Web-sayt, Telegram bot va Java dasturlar — kichik va o'rta hajmdagi loyihalarni bajaraman.</div>
-      </details>
-      <details>
-        <summary data-i18n="faq.q4">Nega menga ishonish mumkin?</summary>
-        <div class="a" data-i18n="faq.a4">Full-Stack kursni to'liq tugatganman, GitHub'da ochiq loyihalarim va haqiqiy sertifikatlarim bor. Har doim onlaynman va tez javob beraman.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="blog">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker"><svg class="ic kico" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="blog.kicker">Blog / Yozuvlar</span></div>
-        <h2 data-i18n-html="blog.title"><span data-i18n="blog.title1">So'nggi</span> <span class="grad" data-i18n="blog.title2">yozuvlar</span></h2>
-      </div>
-      <div class="sec-right" data-i18n="blog.right">Dasturlash bo'yicha qisqa tajribalarim.</div>
-    </div>
-    <div class="blog-grid" id="blogGrid"><div class="blog-empty" data-i18n="blog.loading">Yuklanmoqda&hellip;</div></div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="wrap">
     <div class="sec-head">
@@ -1485,10 +1366,9 @@
   var L = {
     uz: {
       "nav.home":"Bosh","nav.about":"Haqimda","nav.skills":"Mahorat","nav.services":"Xizmatlar",
-      "nav.projects":"Loyihalar","nav.certs":"Sertifikatlar","nav.timeline":"Yo'l","nav.contact":"Aloqa",
+      "nav.projects":"Loyihalar","nav.certs":"Sertifikatlar","nav.contact":"Aloqa",
       "nav.cta":"Bog'lanish",
-      "nav.blog":"Blog","skip":"Asosiy kontentga o'tish",
-      "blog.kicker":"Blog / Yozuvlar","blog.title1":"So'nggi","blog.title2":"yozuvlar","blog.right":"Dasturlash bo'yicha qisqa tajribalarim.","blog.loading":"Yuklanmoqda…","blog.empty":"Hozircha yozuvlar yo'q.","blog.read":"Davomini o'qish →",
+      "skip":"Asosiy kontentga o'tish",
       "form.mathErr":"Matematik javob noto'g'ri — qayta urinib ko'ring.",
       "stats.title":"Statistika","stats.total":"Baxolar","stats.avg":"O'rtacha","stats.likes":"Layklar","stats.dist":"Baxolar taqsimoti","stats.visits":"Tashriflar (umumiy)","stats.likesTop":"Eng ko'p layklangan loyiha","stats.noData":"Ma'lumot yo'q",
       "off.on":"Internet qayta ulandi ✓","off.off":"Oflayn rejim — sayt keshdan ishlayapti",
@@ -1539,16 +1419,6 @@
       "threed.kicker":"3D Models / 3D modellar","threed.title1":"3D","threed.title2":"modellarim","threed.right":"Interaktiv va realistik — faqat mavjud model, ko'chirilgan emas.","threed.sndHint":"Ovoz chiqishi uchun biron joyni bosing — keyin mashinalar oldida ovoz eshitiladi.",
       "certs.kicker":"Certificates / Sertifikatlar","certs.title1":"Mening","certs.title2":"sertifikatlarim","certs.right":"O'qigan kurslar bo'yicha rasmiy hujjatlar.",
       "cert.1":"Sertifikat 1","cert.2":"Sertifikat 2","cert.3":"Sertifikat 3","cert.4":"Sertifikat 4","cert.5":"Sertifikat 5",
-      "timeline.kicker":"Journey / Yo'l","timeline.title1":"Rivojlanish","timeline.title2":"taqdimoti","timeline.right":"Kichik yoshdan to shu kungacha — qisqa tarix.",
-      "timeline.t1t":"Tavallud","timeline.t1p":"Samarqand viloyati, Oqdaryo tumanida dunyoga keldim.",
-      "timeline.t2t":"IT bilan tanishuv","timeline.t2p":"5 yoshimda otam sababli kompyuter va texnologiyalarga qiziqib qoldim.",
-      "timeline.t3t":"Full-Stack kurs tugatildi","timeline.t3p":"Frontend, Backend, Database va API bo'yicha to'liq kursni tamomladim.",
-      "timeline.t4t":"Java chuqurlashuvi","timeline.t4p":"Java dasturlash tilini chuqurlashtiryapman, yangi loyihalar yaratmoqdaman.",
-      "faq.kicker":"FAQ / Savollar","faq.title1":"Tez-tez","faq.title2":"so'raladi","faq.right":"Ko'pchilik so'raydigan savollarga javoblar.",
-      "faq.q1":"Qancha yoshdasiz va qayerda yashaysiz?","faq.a1":"Men {age} yoshdaman. 2015-yilda 21-mayda Samarqand viloyati, Oqdaryo tumanida tug'ilganman va shu yerda yashayman.",
-      "faq.q2":"Qanday texnologiyalarni bilasiz?","faq.a2":"HTML, CSS, JavaScript, TypeScript, Java, SQL hamda REST API va Telegram API bilan ishlayman.",
-      "faq.q3":"Qanday loyihalarni qabul qilasiz?","faq.a3":"Web-sayt, Telegram bot va Java dasturlar — kichik va o'rta hajmdagi loyihalarni bajaraman.",
-      "faq.q4":"Nega menga ishonish mumkin?","faq.a4":"Full-Stack kursni to'liq tugatganman, GitHub'da ochiq loyihalarim va haqiqiy sertifikatlarim bor. Har doim onlaynman va tez javob beraman.",
       "contact.kicker":"Contact / Aloqa","contact.title1":"Men bilan","contact.title2":"bog'laning","contact.right":"Savol, taklif yoki loyiha — doim onlayn.",
       "contact.copy":"<svg class='ic' aria-hidden='true'><use href='#i-copy'/></svg> Nusxalash",
       "form.title":"<svg class='ic' aria-hidden='true'><use href='#i-chat'/></svg> Xabar yuboring","form.sub":"To'g'ridan-to'g'ri Telegram'ga keladigan xabar formasi. Ism, aloqa va xabaringizni yozing.",
@@ -1564,10 +1434,9 @@
     },
     en: {
       "nav.home":"Home","nav.about":"About","nav.skills":"Skills","nav.services":"Services",
-      "nav.projects":"Projects","nav.certs":"Certificates","nav.timeline":"Journey","nav.contact":"Contact",
+      "nav.projects":"Projects","nav.certs":"Certificates","nav.contact":"Contact",
       "nav.cta":"Contact me",
-      "nav.blog":"Blog","skip":"Skip to main content",
-      "blog.kicker":"Blog / Posts","blog.title1":"Latest","blog.title2":"posts","blog.right":"Short notes from my programming experience.","blog.loading":"Loading…","blog.empty":"No posts yet.","blog.read":"Read more →",
+      "skip":"Skip to main content",
       "form.mathErr":"Wrong math answer — please try again.",
       "stats.title":"Statistics","stats.total":"Ratings","stats.avg":"Average","stats.likes":"Likes","stats.dist":"Rating distribution","stats.visits":"Total visits","stats.likesTop":"Most liked project","stats.noData":"No data",
       "off.on":"Back online ✓","off.off":"Offline — the site works from cache",
@@ -1618,16 +1487,6 @@
       "threed.kicker":"3D Models / 3D modellar","threed.title1":"My","threed.title2":"3D models","threed.right":"Interactive and realistic — real models, not reposted.","threed.sndHint":"Tap anywhere to enable sound — it will play as you approach the cars.",
       "certs.kicker":"Certificates / Sertifikatlar","certs.title1":"My","certs.title2":"certificates","certs.right":"Official documents of completed courses.",
       "cert.1":"Certificate 1","cert.2":"Certificate 2","cert.3":"Certificate 3","cert.4":"Certificate 4","cert.5":"Certificate 5",
-      "timeline.kicker":"Journey / Yo'l","timeline.title1":"Growth","timeline.title2":"timeline","timeline.right":"A short story from early days until now.",
-      "timeline.t1t":"Birth","timeline.t1p":"Born in Samarqand region, Oqdaryo district.",
-      "timeline.t2t":"IT introduction","timeline.t2p":"At age 5, thanks to my father, I got interested in computers and technology.",
-      "timeline.t3t":"Full-Stack course completed","timeline.t3p":"Completed the full course on Frontend, Backend, Database and API.",
-      "timeline.t4t":"Deepening Java","timeline.t4p":"Now deepening the Java language and building new projects.",
-      "faq.kicker":"FAQ / Savollar","faq.title1":"Frequently","faq.title2":"asked","faq.right":"Answers to the most common questions.",
-      "faq.q1":"How old are you and where do you live?","faq.a1":"I am {age} years old. I was born on 21 May 2015 in Samarqand region, Oqdaryo district, and I live there.",
-      "faq.q2":"Which technologies do you know?","faq.a2":"I work with HTML, CSS, JavaScript, TypeScript, Java, SQL plus REST API and Telegram API.",
-      "faq.q3":"What projects do you accept?","faq.a3":"Websites, Telegram bots and Java programs — small and medium-sized projects.",
-      "faq.q4":"Why should I trust you?","faq.a4":"I completed the Full-Stack course, my projects are open on GitHub and I have real certificates. I am always online and answer quickly.",
       "contact.kicker":"Contact / Aloqa","contact.title1":"Let's","contact.title2":"get in touch","contact.right":"Questions, ideas or projects — always online.",
       "contact.copy":"<svg class='ic' aria-hidden='true'><use href='#i-copy'/></svg> Copy",
       "form.title":"<svg class='ic' aria-hidden='true'><use href='#i-chat'/></svg> Send a message","form.sub":"A form that delivers directly to Telegram. Write your name, contact and message.",
@@ -1643,10 +1502,9 @@
     },
     ru: {
       "nav.home":"Главная","nav.about":"Обо мне","nav.skills":"Навыки","nav.services":"Услуги",
-      "nav.projects":"Проекты","nav.certs":"Сертификаты","nav.timeline":"Путь","nav.contact":"Контакты",
+      "nav.projects":"Проекты","nav.certs":"Сертификаты","nav.contact":"Контакты",
       "nav.cta":"Связаться",
-      "nav.blog":"Блог","skip":"Перейти к основному контенту",
-      "blog.kicker":"Блог / Записи","blog.title1":"Свежие","blog.title2":"записи","blog.right":"Короткие заметки из моего опыта программирования.","blog.loading":"Загрузка…","blog.empty":"Записей пока нет.","blog.read":"Читать далее →",
+      "skip":"Перейти к основному контенту",
       "form.mathErr":"Неверный ответ на пример — попробуйте ещё раз.",
       "stats.title":"Статистика","stats.total":"Оценки","stats.avg":"Среднее","stats.likes":"Лайки","stats.dist":"Распределение оценок","stats.visits":"Всего визитов","stats.likesTop":"Самый лайкнутый проект","stats.noData":"Нет данных",
       "off.on":"Снова в сети ✓","off.off":"Офлайн — сайт работает из кэша",
@@ -1697,16 +1555,6 @@
       "threed.kicker":"3D - модели","threed.title1":"Мои","threed.title2":"3D-модели","threed.right":"Интерактивные и реалистичные — настоящие модели, не репост.","threed.sndHint":"Нажмите в любом месте, чтобы включить звук — он заиграет, когда подойдёте к моделям.",
       "certs.kicker":"Сертификаты","certs.title1":"Мои","certs.title2":"сертификаты","certs.right":"Официальные документы пройденных курсов.",
       "cert.1":"Сертификат 1","cert.2":"Сертификат 2","cert.3":"Сертификат 3","cert.4":"Сертификат 4","cert.5":"Сертификат 5",
-      "timeline.kicker":"Путь","timeline.title1":"История","timeline.title2":"развития","timeline.right":"Короткая история с детства до сегодня.",
-      "timeline.t1t":"Рождение","timeline.t1p":"Родился в Самаркандской области, Окдарьинском районе.",
-      "timeline.t2t":"Знакомство с IT","timeline.t2p":"В 5 лет благодаря отцу увлёкся компьютерами и технологиями.",
-      "timeline.t3t":"Full-Stack курс окончен","timeline.t3p":"Полностью прошёл курс по Frontend, Backend, базе данных и API.",
-      "timeline.t4t":"Углубление в Java","timeline.t4p":"Углубляю Java и создаю новые проекты.",
-      "faq.kicker":"Вопросы","faq.title1":"Часто","faq.title2":"задают","faq.right":"Ответы на частые вопросы.",
-      "faq.q1":"Сколько вам лет и где вы живёте?","faq.a1":"Мне {age} лет. Я родился 21 мая 2015 года в Самаркандской области, Окдарьинском районе, и живу там.",
-      "faq.q2":"Какие технологии вы знаете?","faq.a2":"Работаю с HTML, CSS, JavaScript, TypeScript, Java, SQL, а также REST API и Telegram API.",
-      "faq.q3":"Какие проекты вы берёте?","faq.a3":"Сайты, Telegram боты и Java программы — небольшие и средние проекты.",
-      "faq.q4":"Почему мне можно доверять?","faq.a4":"Я полностью прошёл Full-Stack курс, мои проекты открыты на GitHub и есть настоящие сертификаты. Всегда на связи и отвечаю быстро.",
       "contact.kicker":"Контакты","contact.title1":"Свяжитесь","contact.title2":"со мной","contact.right":"Вопрос, идея или проект — всегда на связи.",
       "contact.copy":"<svg class='ic' aria-hidden='true'><use href='#i-copy'/></svg> Копировать",
       "form.title":"<svg class='ic' aria-hidden='true'><use href='#i-chat'/></svg> Отправьте сообщение","form.sub":"Форма, сообщения которой приходят прямо в Telegram. Напишите имя, контакт и сообщение.",
@@ -1860,7 +1708,7 @@
     setInterval(tick, 1000);
   }
 
-  document.querySelectorAll(".grad,.btn-primary,.s-icon,.c-icon,.p-ico,.tl-dot,.logo .grad,.nav-cta").forEach(function (el) {
+  document.querySelectorAll(".grad,.btn-primary,.s-icon,.c-icon,.p-ico,.logo .grad,.nav-cta").forEach(function (el) {
     el.classList.add("hue");
   });
 
@@ -1879,7 +1727,7 @@
   var nav = document.querySelector("nav");
   var prog = document.getElementById("progress");
   var links = document.querySelectorAll(".menu a");
-  var secs = ["home", "about", "skills", "services", "process", "projects", "certs", "timeline", "faq", "contact"];
+  var secs = ["home", "about", "skills", "services", "process", "projects", "certs", "contact"];
   function onScroll() {
     toTop.classList.toggle("show", window.scrollY > 320);
     nav.classList.toggle("scrolled", window.scrollY > 60);
@@ -2216,23 +2064,7 @@
   });
   loadLikes();
 
-  /* ===== BLOG (blog.json) ===== */
-  var blogGrid = document.getElementById("blogGrid");
   function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, function (m) { return m === "<" ? "&lt;" : m === ">" ? "&gt;" : "&amp;"; }); }
-  function loadBlog() {
-    if (!blogGrid) return;
-    fetch("blog.json", { cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .then(function (posts) {
-        if (!Array.isArray(posts) || !posts.length) throw 0;
-        var dict = L[savedLang] || L.uz;
-        blogGrid.innerHTML = posts.map(function (p) {
-          return '<details class="blog-card"><summary><div class="blog-meta"><span class="blog-tag">' + esc(p.tag) + '</span><time>' + esc(p.date) + '</time></div><h3>' + esc(p.title) + '</h3><span class="blog-more">' + esc(dict["blog.read"] || "→") + '</span></summary><div class="blog-body">' + esc(p.body) + '</div></details>';
-        }).join("");
-      })
-      .catch(function () { blogGrid.innerHTML = '<div class="blog-empty">' + esc((L[savedLang] || L.uz)["blog.empty"]) + '</div>'; });
-  }
-  loadBlog();
 
   /* ===== STATISTIKA PANELI (faqat egasi: terminal "stats") ===== */
   var statsEl = document.getElementById("stats");
@@ -2605,7 +2437,6 @@
     setAccent: setAccent,
     cycleAccent: cycleAccent,
     stats: openStats,
-    loadBlog: loadBlog,
     loadLikes: loadLikes
   };
 
@@ -3050,7 +2881,6 @@ window.addEventListener("load", function () {
     if (hasNav(/loyiha|loyhalar|project|projects/)) return "projects";
     if (hasNav(/mahorat|skill|skills|til(lar)?|know/)) return "skills";
     if (hasNav(/xizmat|service|buyurtma/)) return "services";
-    if (hasNav(/yo'l|timeline|yo'nalish|history/)) return "timeline";
     if (hasNav(/haqimda|about|o'zi|biografiya/)) return "about";
     if (hasNav(/bosh|home|yuqori|asion/)) return "home";
     return null;
@@ -3174,13 +3004,10 @@ window.addEventListener("load", function () {
     { t: "Loyihalar", i: "i-grid", k: "projects loyiha ishlar portfolio", go: "projects" },
     { t: "3D model", i: "i-cube", k: "3d three model threejs", go: "threed" },
     { t: "Sertifikatlar", i: "i-award", k: "certs sertifikat diplom", go: "certs" },
-    { t: "Yo'l xaritasi", i: "i-clock", k: "timeline tarix journey", go: "timeline" },
-    { t: "Savollar", i: "i-help", k: "faq savol", go: "faq" },
     { t: "Aloqa", i: "i-chat", k: "contact aloqa boglanish yozish", go: "contact" },
     { t: "Reytinglar", i: "i-star", k: "rating reyting baho baholash", go: "ratings" },
     { t: "Tema: dark / light", i: "i-moon", k: "theme tema dark light rang", fn: function () { if (app.setTheme) app.setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"); } },
     { t: "Til: uz / en / ru", i: "i-cap", k: "lang til language uz en ru", fn: function () { if (app.applyLang) { var c = document.documentElement.getAttribute("lang") || "uz"; app.applyLang(c === "uz" ? "en" : c === "en" ? "ru" : "uz"); } } },
-    { t: "Blog", i: "i-pen", k: "blog maqola post yozuv yangiliklar", go: "blog" },
     { t: "Accent rang: sikl", i: "i-layers", k: "accent rang color violet blue emerald rose amber", fn: function () { if (app.cycleAccent) { var a = app.cycleAccent(); if (app.toast) app.toast("Accent: " + a); } } },
     { t: "Statistika (egasi)", i: "i-target", k: "stats statistika reyting layk tashrif baxo", fn: function () { if (app.stats) app.stats(); } },
     { t: "Snake o'yini", i: "i-grid", k: "game snake o'yin play", fn: function () { if (window.__appGame) { window.__appGame(); } else { var b = document.getElementById("termOpen"); if (b) b.click(); } } },
