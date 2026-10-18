@@ -21,12 +21,10 @@
 <link rel="preconnect" href="https://t.me" crossorigin />
 <link rel="preconnect" href="https://api.telegram.org" crossorigin />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link rel="preconnect" href="https://hits.sh" crossorigin />
 <link rel="dns-prefetch" href="https://api.github.com" />
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <link rel="dns-prefetch" href="https://t.me" />
 <link rel="dns-prefetch" href="https://api.telegram.org" />
-<link rel="dns-prefetch" href="https://hits.sh" />
 
 
 <!-- Open Graph -->
@@ -388,31 +386,6 @@
   .model-stage model-viewer{width:100%;height:100%;display:block;--poster-color:transparent}
   .model small{display:block;text-align:center;font-size:.83rem;font-weight:700;padding:10px 4px 6px;color:var(--muted)}
 
-  /* RATINGS */
-  .rate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-  .rate-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
-  .rate-stars{display:flex;gap:6px;font-size:1.6rem;line-height:1}
-  .rate-stars button{background:none;border:0;padding:4px;cursor:pointer;color:var(--muted);transition:transform .15s,color .15s}
-  .rate-stars button:hover{transform:scale(1.15)}
-  .rate-stars button svg{width:1.4em;height:1.4em;display:block}
-  .rate-stars button.filled{color:#f59e0b}
-  .rate-lbl{font-weight:800;font-size:1.05rem;margin:6px 0 14px}
-  .rate-card textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:12px 14px;font-family:inherit;font-size:.92rem;resize:vertical;min-height:70px;margin-bottom:12px}
-  .rate-item .up svg{width:.95em;height:.95em;display:inline-block}
-  .rate-feedback{margin-top:10px;font-size:.9rem;min-height:1.2em}
-  .rate-feedback.ok{color:var(--green)}.rate-feedback.err{color:#ef4444}
-  .rate-avg{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-  .rate-avg b{font-size:2.1rem;line-height:1}
-  .rate-avg .mini{color:var(--muted);font-size:.9rem}
-  .rate-avg .mini svg{width:.95em;height:.95em;display:inline-block;vertical-align:-2px}
-  .rate-list{margin-top:14px;display:grid;gap:10px}
-  .rate-item{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:13px 16px}
-  .rate-item .up{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
-  .rate-item .up .filled{color:#f59e0b}
-  .rate-item .up time{color:var(--muted);font-size:.75rem}
-  .rate-item p{color:var(--txt);font-size:.88rem;word-break:break-word}
-  .rate-empty{color:var(--muted);font-size:.9rem;padding:10px 0}
-
   /* 3D OVOZ */
   .sound-btn{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:var(--card2);border:1px solid var(--line);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:color .2s,border-color .2s,transform .2s;z-index:3}
   .sound-btn svg{width:20px;height:20px}
@@ -528,9 +501,6 @@
     background:#0b0f1a;border:1px solid #2a3550;border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.7);overflow:hidden;font-family:"Consolas","Cascadia Code",monospace;animation:termIn .25s ease}
   .term[hidden]{display:none}
   @keyframes termIn{from{opacity:0;transform:translateX(-50%) translateY(16px) scale(.96)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
-  .term-open{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.28);color:#cde7ff;border-radius:8px;
-    padding:5px 13px;font-size:.8rem;cursor:pointer;font-family:"Consolas","Cascadia Code",monospace;letter-spacing:.04em}
-  .term-open:hover{background:rgba(110,231,183,.15);border-color:#6ee7b7;color:#6ee7b7}
   @media (max-width:640px){.term{bottom:170px}}
 
   /* ===== GOOGLE PANEL (sayt ichida, pastda) ===== */
@@ -793,7 +763,6 @@
   <symbol id="i-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></g></symbol>
   <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></g></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></g></symbol>
-  <symbol id="i-staro" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></g></symbol>
   <symbol id="i-snd" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18 6a8 8 0 0 1 0 12"/></g></symbol>
   <symbol id="i-mut" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M22 9l-6 6"/><path d="M16 9l6 6"/></g></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></g></symbol>
@@ -808,7 +777,6 @@
   <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></g></symbol>
   <symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></g></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></g></symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></g></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></g></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></g></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></g></symbol>
@@ -1151,49 +1119,8 @@
   </div>
 </section>
 
-<section id="ratings">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker"><svg class="ic kico" aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="ratings.kicker">Ratings / Baxolar</span></div>
-        <h2 data-i18n-html="ratings.title"><span data-i18n="ratings.title1">Portfolioga</span> <span class="grad" data-i18n="ratings.title2">baxo bering</span></h2>
-      </div>
-      <div class="sec-right" data-i18n="ratings.right">Baxoyingiz pastdagi ro'yxatda ko'rinadi.</div>
-    </div>
-    <div class="rate-grid">
-      <div class="rate-card">
-        <div class="rate-stars" id="rateStars">
-          <button type="button" data-v="1" aria-label="1" title="1"><svg class="ic" aria-hidden="true"><use href="#i-staro"/></svg></button>
-          <button type="button" data-v="2" aria-label="2" title="2"><svg class="ic" aria-hidden="true"><use href="#i-staro"/></svg></button>
-          <button type="button" data-v="3" aria-label="3" title="3"><svg class="ic" aria-hidden="true"><use href="#i-staro"/></svg></button>
-          <button type="button" data-v="4" aria-label="4" title="4"><svg class="ic" aria-hidden="true"><use href="#i-staro"/></svg></button>
-          <button type="button" data-v="5" aria-label="5" title="5"><svg class="ic" aria-hidden="true"><use href="#i-staro"/></svg></button>
-        </div>
-        <div class="rate-lbl" id="rateLbl" data-i18n="ratings.prompt">Necha yulduz beringasiz?</div>
-        <textarea id="rateCmt" placeholder="Mulohaza (ixtiyoriy)..." maxlength="400"></textarea>
-        <button class="btn btn-primary" type="button" id="rateSend"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> <span data-i18n="ratings.send">Baxo yuborish</span></button>
-        <div class="rate-feedback" id="rateFb"></div>
-      </div>
-      <div class="rate-card">
-        <div class="rate-avg">
-          <b id="avgNum">0</b>
-          <span class="mini" id="avgStars"></span>
-          <span class="mini"><b id="avgCount">0</b> <span data-i18n="ratings.count">baxo</span></span>
-        </div>
-        <div class="rate-list" id="rateList"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer>
   <p>© <span id="year">2026</span> <b>Abdulaziz Abduahadov</b>. <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></p>
-  <p style="margin-top:8px">Made with <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> + <svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg> in Uzbekistan</p>
-  <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> <span data-i18n="footer.uz">O'zbekiston:</span> <b id="uztime">--:--:--</b></p>
-  <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> <span data-i18n="footer.visits">Saytga kirganlar:</span> <img src="https://hits.sh/abduahadov.wwwi.uz.svg?label=&color=7c3aed&style=flat-square&logoColor=white" alt="0" style="vertical-align:middle;height:18px;border-radius:4px" loading="lazy" /></p>
-  <p style="margin-top:6px"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> <span data-i18n="footer.channel">Telegram kanal:</span> <a href="https://t.me/abdulazizabduahadov" target="_blank" rel="noopener" style="color:var(--violet);font-weight:700">@abdulazizabduahadov</a></p>
-  <p style="margin-top:10px"><button type="button" class="term-open" id="termOpen" title="Dasturchi terminali">&#9656; Terminal</button> <button type="button" class="term-open" id="cpalOpen" title="Buyruqlar paneli">&#8984; Ctrl+K</button></p>
-  <p style="margin-top:8px;font-size:.82rem;opacity:.75;letter-spacing:.04em"><b>Portfolio</b> — v1.0.0</p>
 </footer>
 
 <a class="fab" href="https://t.me/Laziz_Abduahadov?text=%D0%A1alom%2C%20portfolio%20saytingizdan%20yozdim." target="_blank" rel="noopener" title="Telegramda yozish"><img src="telegram.png" alt="Telegram" /></a>
@@ -1296,7 +1223,7 @@
       "stat.years":"Yil kompyuterda","stat.tech":"Texnologiya","stat.course":"Full-stack kurs",
       "about.kicker":"About / Haqimda","about.title1":"Men","about.title2":"kimman?","about.right":"Kod yozish — mening sevimli mashg'ulotim va kelajak kasbim.",
       "about.p1":"Mening ismim <b>Abdulaziz Abduahadov</b>. 2015-yil 21-mayda <b>Samarqand viloyati, Oqdaryo tumanida</b> dunyoga kelganman. Kompyuter olami bilan <b>5 yoshimdanoq</b> tanishman — bunga otam sababchi, chunki uning faoliyati ham IT sohasi bilan bog'liq. Hozir kiber xavfsizlik (cybersecurity) sohasini chuqur o'rganyapman.",
-      "contact.channelT":"Telegram kanal","footer.channel":"Telegram kanal:",
+      "contact.channelT":"Telegram kanal",
       "about.p2":"Full-stack yo'nalishni <b>to'liq tugatganman</b>. Java, frontend, backend va ma'lumotlar bazalari bilan erkin ishlayman. Yangi texnologiyalarni juda tez o'rganaman.",
       "about.c1":"Full-stack to'liq tugatgan","about.c2":"Java dasturlash","about.c4":"Telegram bot","about.c5":"GitHub'da faol","about.c6":"Tez o'rganuvchi",
       "about.nameL":"Ism","about.surL":"Familiya","about.bornL":"Tug'ilgan","about.ageL":"Yosh","about.regionL":"Viloyat","about.dirL":"Yo'nalish",
@@ -1333,12 +1260,7 @@
       "form.nameL":"Ismingiz","form.contactL":"Telegram / email","form.msgL":"Xabaringiz","form.send":"<svg class='ic' aria-hidden='true'><use href='#i-plane'/></svg> Yuborish",
       "form.err":"Iltimos, ism, aloqa va xabarni to'ldiring.","form.fail":"Xabar yuborilmadi. Telegram orqali yozing: @Laziz_Abduahadov","form.ok":"✅ Xabaringiz yuborildi! Tez orada javob beraman.",
       "contact.ctaT":"Loyihangizni","contact.ctaT2":"birgalikda yaratamiz!","contact.ctaP":"Web-sayt, bot yoki dastur buyurtma qilish uchun yozing.","contact.ctaBtn":"Hozir yozish","contact.qr":"Telegram — skaner qiling","contact.qrGh":"GitHub — skaner qiling",
-      "footer.rights":"Barcha huquqlar himoyalangan.","footer.uz":"O'zbekiston:","footer.visits":"Saytga kirganlar:","toast":"Email nusxalandi!",
-      "ratings.kicker":"Ratings / Baxolar","ratings.title1":"Portfolioga","ratings.title2":"baxo bering","ratings.right":"Baxoyingiz pastdagi ro'yxatda ko'rinadi.",
-      "ratings.prompt":"Necha yulduz beringasiz?","ratings.commentPh":"Mulohaza (ixtiyoriy)...","ratings.send":"Baxo yuborish",
-      "ratings.thanks":"Rahmat! Baxoyingiz saqlandi.","ratings.fail":"Baxo yuborilmadi — qayta urinib ko'ring.",
-      "ratings.limit":"1 kunda 1 marta baholash mumkin — keyingisi","ratings.limitS":"soatdan keyin",
-      "ratings.count":"baxo","ratings.empty":"Hali baxo yo'q — birinchi bo'lib baholang!"
+      "footer.rights":"Barcha huquqlar himoyalangan.","toast":"Email nusxalandi!",
     },
     en: {
       "nav.home":"Home","nav.about":"About","nav.services":"Services",
@@ -1355,7 +1277,7 @@
       "stat.years":"Years with computers","stat.tech":"Technologies","stat.course":"Full-stack course",
       "about.kicker":"About / Haqida","about.title1":"Who","about.title2":"am I?","about.right":"Coding is my favourite hobby and my future profession.",
       "about.p1":"My name is <b>Abdulaziz Abduahadov</b>. I was born on 21 May 2015 in <b>Samarqand region, Oqdaryo district</b>. I have known the computer world since <b>the age of 5</b> — thanks to my father, whose career is also connected to IT. Right now I'm deeply learning cybersecurity.",
-      "contact.channelT":"Telegram channel","footer.channel":"Telegram channel:",
+      "contact.channelT":"Telegram channel",
       "about.p2":"I have <b>fully completed</b> the Full-Stack path. I work freely with Java, frontend, backend and databases. I learn new technologies very fast.",
       "about.c1":"Completed Full-stack","about.c2":"Java programming","about.c4":"Telegram bot","about.c5":"Active on GitHub","about.c6":"Fast learner",
       "about.nameL":"Name","about.surL":"Surname","about.bornL":"Born","about.ageL":"Age","about.regionL":"Region","about.dirL":"Field",
@@ -1392,12 +1314,7 @@
       "form.nameL":"Your name","form.contactL":"Telegram / email","form.msgL":"Your message","form.send":"<svg class='ic' aria-hidden='true'><use href='#i-plane'/></svg> Send",
       "form.err":"Please fill in name, contact and message.","form.fail":"Message not sent. Write via Telegram: @Laziz_Abduahadov","form.ok":"✅ Your message was sent! I will reply soon.",
       "contact.ctaT":"Let's build your","contact.ctaT2":"project together!","contact.ctaP":"Write to order a website, bot or application.","contact.ctaBtn":"Write now","contact.qr":"Scan the QR with Telegram","contact.qrGh":"Scan the QR to open GitHub",
-      "footer.rights":"All rights reserved.","footer.uz":"Uzbekistan:","footer.visits":"Site visitors:","toast":"Email copied!",
-      "ratings.kicker":"Ratings","ratings.title1":"Rate the","ratings.title2":"portfolio","ratings.right":"Your rating appears in the list below.",
-      "ratings.prompt":"How many stars?","ratings.commentPh":"Feedback (optional)...","ratings.send":"Send rating",
-      "ratings.thanks":"Thanks! Your rating was saved.","ratings.fail":"Couldn't send rating — try again.",
-      "ratings.limit":"You can rate once a day — next in","ratings.limitS":"hours",
-      "ratings.count":"ratings","ratings.empty":"No ratings yet — be the first!"
+      "footer.rights":"All rights reserved.","toast":"Email copied!",
     },
     ru: {
       "nav.home":"Главная","nav.about":"Обо мне","nav.services":"Услуги",
@@ -1414,7 +1331,7 @@
       "stat.years":"Лет с компьютером","stat.tech":"Технологий","stat.course":"Full-stack курс",
       "about.kicker":"Обо мне","about.title1":"Кто","about.title2":"я?","about.right":"Писать код — моё любимое занятие и будущая профессия.",
       "about.p1":"Меня зовут <b>Абдулазиз Абдуахадов</b>. Я родился 21 мая 2015 года в <b>Самаркандской области, Окдарьинском районе</b>. С миром компьютера знаком с <b>5 лет</b> — благодаря отцу, чья деятельность тоже связана с IT. Сейчас глубоко изучаю кибербезопасность.",
-      "contact.channelT":"Телеграм-канал","footer.channel":"Телеграм-канал:",
+      "contact.channelT":"Телеграм-канал",
       "about.p2":"Я <b>полностью прошёл</b> Full-Stack. Свободно работаю с Java, frontend, backend и базами данных. Очень быстро учу новые технологии.",
       "about.c1":"Full-stack окончен","about.c2":"Java разработка","about.c4":"Telegram бот","about.c5":"Активен на GitHub","about.c6":"Быстро учусь",
       "about.nameL":"Имя","about.surL":"Фамилия","about.bornL":"Рождён","about.ageL":"Возраст","about.regionL":"Область","about.dirL":"Направление",
@@ -1451,12 +1368,7 @@
       "form.nameL":"Ваше имя","form.contactL":"Telegram / email","form.msgL":"Ваше сообщение","form.send":"<svg class='ic' aria-hidden='true'><use href='#i-plane'/></svg> Отправить",
       "form.err":"Заполните, пожалуйста, имя, контакт и сообщение.","form.fail":"Сообщение не отправлено. Напишите в Telegram: @Laziz_Abduahadov","form.ok":"✅ Ваше сообщение отправлено! Скоро отвечу.",
       "contact.ctaT":"Создадим ваш","contact.ctaT2":"проект вместе!","contact.ctaP":"Напишите, чтобы заказать сайт, бота или программу.","contact.ctaBtn":"Написать сейчас","contact.qr":"Отсканируйте QR в Telegram","contact.qrGh":"Отсканируйте QR для GitHub",
-      "footer.rights":"Все права защищены.","footer.uz":"Узбекистан:","footer.visits":"Посетителей сайта:","toast":"Email скопирован!",
-      "ratings.kicker":"Оценки","ratings.title1":"Оцените","ratings.title2":"портфолио","ratings.right":"Ваша оценка появится в списке ниже.",
-      "ratings.prompt":"Сколько звёзд?","ratings.commentPh":"Отзыв (необязательно)...","ratings.send":"Отправить",
-      "ratings.thanks":"Спасибо! Оценка сохранена.","ratings.fail":"Не удалось отправить — попробуйте ещё раз.",
-      "ratings.limit":"Можно оценить 1 раз в день — следующая через","ratings.limitS":"час.",
-      "ratings.count":"оценок","ratings.empty":"Оценок пока нет — будьте первым!"
+      "footer.rights":"Все права защищены.","toast":"Email скопирован!",
     }
   };
 
@@ -1584,19 +1496,6 @@
   }
   type();
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  var tzc = document.getElementById("uztime");
-  if (tzc) {
-    function tick() {
-      var now = new Date();
-      var parts = new Intl.DateTimeFormat("uz-UZ", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false, timeZone: "Asia/Tashkent" }).formatToParts(now);
-      var o = {};
-      parts.forEach(function (p) { o[p.type] = p.value; });
-      tzc.textContent = (o.hour || "00") + ":" + (o.minute || "00") + ":" + (o.second || "00");
-    }
-    tick();
-    setInterval(tick, 1000);
-  }
 
   document.querySelectorAll(".grad,.btn-primary,.s-icon,.c-icon,.p-ico,.logo .grad,.nav-cta").forEach(function (el) {
     el.classList.add("hue");
@@ -1772,108 +1671,6 @@
         .finally(function () { btn.disabled = false; btn.style.opacity = ""; });
     });
   }
-
-  /* BAXOLAR (backend /api/rating orqali — kvdb tokeni serverda) */
-  var RATE_URL = "/api/rating";
-  var rateStarsEl = document.getElementById("rateStars");
-  var rateCmtEl = document.getElementById("rateCmt");
-  var rateSendEl = document.getElementById("rateSend");
-  var rateFbEl = document.getElementById("rateFb");
-  var rateListEl = document.getElementById("rateList");
-  var avgNumEl = document.getElementById("avgNum");
-  var avgStarsEl = document.getElementById("avgStars");
-  var avgCountEl = document.getElementById("avgCount");
-  var selStar = 0;
-  var rateCache = [];
-  var starBtns = rateStarsEl ? Array.prototype.slice.call(rateStarsEl.querySelectorAll("button")) : [];
-  function starSvg(f) { return "<svg class='ic' aria-hidden='true'><use href='#i-" + (f ? "star" : "staro") + "'/></svg>"; }
-  function paintStars() {
-    starBtns.forEach(function (b) {
-      b.classList.toggle("filled", parseInt(b.getAttribute("data-v"), 10) <= selStar);
-      b.innerHTML = starSvg(parseInt(b.getAttribute("data-v"), 10) <= selStar);
-    });
-  }
-  function starsRow(n) { var s = ""; for (var i = 1; i <= 5; i++) s += starSvg(i <= n); return s; }
-  function rateEmpty() { return "<div class='rate-empty'>" + ((L[savedLang] || L.uz)["ratings.empty"] || "") + "</div>"; }
-  if (rateStarsEl) {
-    rateStarsEl.addEventListener("click", function (e) {
-      var t = e.target && e.target.closest ? e.target.closest("button") : null;
-      if (!t || !rateStarsEl.contains(t)) return;
-      selStar = parseInt(t.getAttribute("data-v"), 10);
-      paintStars();
-    });
-  }
-  function renderRatings(arr) {
-    arr = arr || [];
-    var sum = 0;
-    arr.forEach(function (r) { sum += Number(r.s) || 0; });
-    var avg = arr.length ? sum / arr.length : 0;
-    if (avgNumEl) avgNumEl.textContent = arr.length ? avg.toFixed(1) : "0";
-    if (avgStarsEl) avgStarsEl.innerHTML = starsRow(Math.round(avg));
-    if (avgCountEl) avgCountEl.textContent = arr.length;
-    if (!rateListEl) return;
-    if (!arr.length) { rateListEl.innerHTML = rateEmpty(); return; }
-    var last = arr.slice().sort(function (a, b) { return (b.t || 0) - (a.t || 0); }).slice(0, 8);
-    rateListEl.innerHTML = last.map(function (r) {
-      var d = "";
-      if (r.t) { try { d = new Date(Number(r.t)).toLocaleDateString(savedLang === "en" ? "en-US" : savedLang === "ru" ? "ru-RU" : "uz-UZ"); } catch (e) { d = ""; } }
-      var cm = String(r.c || "").replace(/[<>&]/g, function (m) { return m === "<" ? "&lt;" : m === ">" ? "&gt;" : "&amp;"; });
-      return "<div class='rate-item'><div class='up'><span>" + starsRow(Number(r.s) || 0) + "</span><time>" + d + "</time></div>" + (cm ? "<p>" + cm + "</p>" : "") + "</div>";
-    }).join("");
-  }
-  function loadRatings() {
-    if (!rateListEl) return;
-    fetch(RATE_URL, { cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
-      .then(function (d) {
-        rateCache = (d && Array.isArray(d.ratings)) ? d.ratings : [];
-        renderRatings(rateCache);
-      })
-      .catch(function () { rateCache = []; rateListEl.innerHTML = rateEmpty(); });
-  }
-  function saveRating() {
-    if (!selStar) {
-      rateFbEl.className = "rate-feedback err";
-      rateFbEl.textContent = (L[savedLang] || L.uz)["ratings.prompt"] || "";
-      return;
-    }
-    var DAY = 24 * 60 * 60 * 1000;
-    var lastR = 0;
-    try { lastR = parseInt(localStorage.getItem("rate1day"), 10) || 0; } catch (e) {}
-    if (lastR && Date.now() - lastR < DAY) {
-      rateFbEl.className = "rate-feedback err";
-      var leftH = Math.ceil((DAY - (Date.now() - lastR)) / 3600000);
-      var Lc = (L[savedLang] || L.uz);
-      rateFbEl.textContent = (Lc["ratings.limit"] || "1 kunda 1 marta baholash mumkin") + " " + leftH + " " + (Lc["ratings.limitS"] || "soatdan keyin");
-      return;
-    }
-    var rec = { s: selStar, c: (rateCmtEl.value || "").trim().slice(0, 400), t: Date.now() };
-    rateSendEl.disabled = true;
-    rateFbEl.className = "rate-feedback";
-    rateFbEl.textContent = "…";
-    fetch(RATE_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ stars: rec.s, comment: rec.c, lang: savedLang }) })
-      .then(function (r) {
-        if (!r.ok) throw new Error("http " + r.status);
-        return r.json();
-      })
-      .then(function (d) {
-        if (!d || !d.ok) throw new Error("bad response");
-        try { localStorage.setItem("rate1day", String(Date.now())); } catch (e2) {}
-        rateCache.push(rec);
-        renderRatings(rateCache);
-        rateCmtEl.value = "";
-        selStar = 0; paintStars();
-        rateFbEl.className = "rate-feedback ok";
-        rateFbEl.textContent = (L[savedLang] || L.uz)["ratings.thanks"] || "";
-      })
-      .catch(function () {
-        rateFbEl.className = "rate-feedback err";
-        rateFbEl.textContent = (L[savedLang] || L.uz)["ratings.fail"] || "";
-      })
-      .finally(function () { rateSendEl.disabled = false; });
-  }
-  if (rateSendEl) rateSendEl.addEventListener("click", saveRating);
-  loadRatings();
 
   /* ===== AVTOMATIK TEMA (kunduz/tun) — faqat qo'lda tanlanmagan bo'lsa ===== */
   function autoThemeTick() {
@@ -2360,6 +2157,7 @@ window.addEventListener("load", function () {
     body.scrollTop = body.scrollHeight;
   }
 
+  window.__openTerm = openTerm;
   function openTerm() {
     if (!term) return;
     closeGoogle();
@@ -2562,8 +2360,6 @@ window.addEventListener("load", function () {
   });
 
   document.getElementById("termX").addEventListener("click", closeTerm);
-  var openBtn = document.getElementById("termOpen");
-  if (openBtn) openBtn.addEventListener("click", openTerm);
 
   /* ===== SNAKE O'YINI (terminal: game) ===== */
   var gFx = null, gRun = false, gTimer = null, gScore = 0, gDir = "R", gNext = "R", gSnake = [], gFood = null;
@@ -2888,14 +2684,13 @@ window.addEventListener("load", function () {
     { t: "3D model", i: "i-cube", k: "3d three model threejs", go: "threed" },
     { t: "Sertifikatlar", i: "i-award", k: "certs sertifikat diplom", go: "certs" },
     { t: "Aloqa", i: "i-chat", k: "contact aloqa boglanish yozish", go: "contact" },
-    { t: "Reytinglar", i: "i-star", k: "rating reyting baho baholash", go: "ratings" },
     { t: "Tema: dark / light", i: "i-moon", k: "theme tema dark light rang", fn: function () { if (app.setTheme) app.setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"); } },
     { t: "Til: uz / en / ru", i: "i-cap", k: "lang til language uz en ru", fn: function () { if (app.applyLang) { var c = document.documentElement.getAttribute("lang") || "uz"; app.applyLang(c === "uz" ? "en" : c === "en" ? "ru" : "uz"); } } },
     { t: "Accent rang: sikl", i: "i-layers", k: "accent rang color violet blue emerald rose amber", fn: function () { if (app.cycleAccent) { var a = app.cycleAccent(); if (app.toast) app.toast("Accent: " + a); } } },
     { t: "Statistika (egasi)", i: "i-target", k: "stats statistika reyting layk tashrif baxo", fn: function () { if (app.stats) app.stats(); } },
-    { t: "Snake o'yini", i: "i-grid", k: "game snake o'yin play", fn: function () { if (window.__appGame) { window.__appGame(); } else { var b = document.getElementById("termOpen"); if (b) b.click(); } } },
+    { t: "Snake o'yini", i: "i-grid", k: "game snake o'yin play", fn: function () { if (window.__appGame) { window.__appGame(); } else if (window.__openTerm) { window.__openTerm(); } } },
     { t: "CV ochish", i: "i-file", k: "cv resume rezyume yuklab", fn: function () { window.open("cv.html", "_blank"); } },
-    { t: "Terminalni ochish", i: "i-code", k: "terminal cmd console buyruq", fn: function () { var b = document.getElementById("termOpen"); if (b) b.click(); } },
+    { t: "Terminalni ochish", i: "i-code", k: "terminal cmd console buyruq", fn: function () { if (window.__openTerm) window.__openTerm(); } },
     { t: "Fon rangini almashtirish", i: "i-layers", k: "bg fon rang color gradient", fn: function () { if (app.cycleBg) app.cycleBg(); } },
     { t: "Google ochish", i: "i-search", k: "google qidiruv search", fn: function () { window.open("https://www.google.com/", "_blank"); } },
     { t: "Telegram", i: "i-plane", k: "telegram", fn: function () { window.open("https://t.me/Laziz_Abduahadov", "_blank"); } },
@@ -2946,8 +2741,6 @@ window.addEventListener("load", function () {
     if (t) run(shown[parseInt(t.getAttribute("data-i"), 10)]);
   });
   pal.addEventListener("mousedown", function (e) { if (e.target === pal) closePal(); });
-  var op = document.getElementById("cpalOpen");
-  if (op) op.addEventListener("click", openPal);
 })();
 </script>
 </body>
