@@ -354,23 +354,6 @@
   .tg{width:15px;height:15px;border-radius:50%;object-fit:cover;vertical-align:-2px;margin-right:4px}
   .tg-lg{width:30px;height:30px;vertical-align:0;margin:0}
 
-  /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-  .skill{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
-  .skill::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--grad);opacity:0;transition:opacity .3s}
-  .skill:hover{transform:translateY(-6px);border-color:rgba(168,85,247,.45)}
-  .skill:hover::before{opacity:1}
-  .s-top{display:flex;align-items:center;gap:13px;margin-bottom:16px}
-  .s-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(var(--acc-rgb),.16);flex-shrink:0}
-  .skill h3{font-size:1.03rem}
-  .skill p{color:var(--muted);font-size:.88rem;margin-bottom:16px}
-  .skill .bar{height:9px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden}
-  .skill .bar i{display:block;height:100%;border-radius:9px;background:var(--grad);width:var(--w)}
-  .skill .bar i.go{animation:fillBar 1.2s cubic-bezier(.4,0,.2,1)}
-  @keyframes fillBar{from{width:0}}
-  .meta{display:flex;justify-content:space-between;margin-top:9px;font-size:.82rem;color:var(--muted);font-weight:600}
-  .meta b{color:var(--cyan)}
-
   /* PROJECTS */
   .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
   .proj{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
@@ -528,12 +511,6 @@
 
   /* SCROLL PROGRESS */
   #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:99;border-radius:0 3px 3px 0}
-
-  /* TEXNOLOGIYALAR */
-  .techs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
-  .techs span{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:12px;
-    padding:9px 16px;font-size:.86rem;font-weight:700;transition:transform .2s,border-color .2s}
-  .techs span:hover{transform:translateY(-4px);border-color:var(--violet)}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-size:.9rem}
@@ -854,7 +831,6 @@
   <ul class="menu" id="menu">
     <li><a href="#home" data-i18n="nav.home">Bosh</a></li>
     <li><a href="#about" data-i18n="nav.about">Haqimda</a></li>
-    <li><a href="#skills" data-i18n="nav.skills">Mahorat</a></li>
     <li><a href="#services" data-i18n="nav.services">Xizmatlar</a></li>
     <li><a href="#projects" data-i18n="nav.projects">Loyihalar</a></li>
     <li><a href="#certs" data-i18n="nav.certs">Sertifikatlar</a></li>
@@ -967,65 +943,6 @@
       <div class="feat"><span><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></span><div><h3 data-i18n="feat.f2t">Ishonchlilik</h3><p data-i18n="feat.f2p">Har doim onlayn, doim javob beraman.</p></div></div>
       <div class="feat"><span><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><div><h3 data-i18n="feat.f3t">Aniqlik</h3><p data-i18n="feat.f3p">Talabni tushunib, aynan kerakli natijani qilaman.</p></div></div>
       <div class="feat"><span><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><div><h3 data-i18n="feat.f4t">O'sish</h3><p data-i18n="feat.f4p">Har kuni yangi texnologiya o'rganaman.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker"><svg class="ic kico" aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="skills.kicker">Skills / Mahorat</span></div>
-        <h2 data-i18n-html="skills.title"><span data-i18n="skills.title1">Nimalarda</span> <span class="grad" data-i18n="skills.title2">kuchliman?</span></h2>
-      </div>
-      <div class="sec-right" data-i18n="skills.right">Har bir soha bo'yicha amaliy bilim va tajriba.</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg></div><h3 data-i18n="skills.s1t">Frontend</h3></div>
-        <p data-i18n="skills.s1p">HTML, CSS, JavaScript — chiroyli va tezkor interfeyslar.</p>
-        <div class="bar"><i style="--w:92%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg></div><h3 data-i18n="skills.s2t">Backend</h3></div>
-        <p data-i18n="skills.s2p">Server, mantiq va so'rovlarni boshqarish.</p>
-        <div class="bar"><i style="--w:85%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg></div><h3>Java</h3></div>
-        <p data-i18n="skills.s3p">Java tilida mustahkam bilim va amaliyot.</p>
-        <div class="bar"><i style="--w:80%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg></div><h3 data-i18n="skills.s4t">Database</h3></div>
-        <p data-i18n="skills.s4p">Ma'lumotlar bazasi va so'rovlar.</p>
-        <div class="bar"><i style="--w:82%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-server"/></svg></div><h3>API</h3></div>
-        <p data-i18n="skills.s5p">REST API va integratsiya.</p>
-        <div class="bar"><i style="--w:78%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></div><h3 data-i18n="skills.s7t">JavaScript / TypeScript</h3></div>
-        <p data-i18n="skills.s7p">Dinamik interfeyslar, dastur mantig'i va zamonaviy web-ilovalar.</p>
-        <div class="bar"><i style="--w:85%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></div><h3 data-i18n="skills.s8t">Python</h3></div>
-        <p data-i18n="skills.s8p">Skript, avtomatlashtirish va ma'lumotlar bilan ishlash.</p>
-        <div class="bar"><i style="--w:75%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-      <div class="skill"><div class="s-top"><div class="s-icon"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></div><h3 data-i18n="skills.s9t">C / C++</h3></div>
-        <p data-i18n="skills.s9p">Yuqori samarali dasturlar va tizimlar bilan ishlash.</p>
-        <div class="bar"><i style="--w:65%"></i></div><div class="meta"><span data-i18n="skills.level">Mahorat</span></div>
-      </div>
-    </div>
-    <div class="techs">
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> HTML</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-droplet"/></svg> CSS</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg> JavaScript</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg> TypeScript</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg> Java</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Python</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> C</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> C++</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> C#</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Go</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg> Rust</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg> Kotlin</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Swift</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> PHP</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Ruby</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-droplet"/></svg> Dart</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg> R</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Lua</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Perl</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg> Bash</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg> SQL</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-octocat"/></svg> Git</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-octocat"/></svg> GitHub</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-server"/></svg> REST API</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Telegram API</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg> Node.js</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg> React</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg> Vue</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg> Angular</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg> Django</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg> Spring</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg> Laravel</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-droplet"/></svg> Flask</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg> Express</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg> .NET</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg> MySQL</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg> MongoDB</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg> PostgreSQL</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-cube"/></svg> Docker</span><span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg> Linux</span>
-      <span class="tag-lang"><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg> WordPress</span>
     </div>
   </div>
 </section>
@@ -1365,7 +1282,7 @@
   /* ===== TARJIMA (uz / en / ru) ===== */
   var L = {
     uz: {
-      "nav.home":"Bosh","nav.about":"Haqimda","nav.skills":"Mahorat","nav.services":"Xizmatlar",
+      "nav.home":"Bosh","nav.about":"Haqimda","nav.services":"Xizmatlar",
       "nav.projects":"Loyihalar","nav.certs":"Sertifikatlar","nav.contact":"Aloqa",
       "nav.cta":"Bog'lanish",
       "skip":"Asosiy kontentga o'tish",
@@ -1387,15 +1304,6 @@
       "feat.f2t":"Ishonchlilik","feat.f2p":"Har doim onlayn, doim javob beraman.",
       "feat.f3t":"Aniqlik","feat.f3p":"Talabni tushunib, aynan kerakli natijani qilaman.",
       "feat.f4t":"O'sish","feat.f4p":"Har kuni yangi texnologiya o'rganaman.",
-      "skills.kicker":"Skills / Mahorat","skills.title1":"Nimalarda","skills.title2":"kuchliman?","skills.right":"Har bir soha bo'yicha amaliy bilim va tajriba.",
-      "skills.level":"Mahorat","skills.s1t":"Frontend","skills.s1p":"HTML, CSS, JavaScript — chiroyli va tezkor interfeyslar.",
-      "skills.s2t":"Backend","skills.s2p":"Server, mantiq va so'rovlarni boshqarish.",
-      "skills.s3p":"Java tilida mustahkam bilim va amaliyot.",
-      "skills.s4t":"Database","skills.s4p":"Ma'lumotlar bazasi va so'rovlar.",
-      "skills.s5p":"REST API va integratsiya.",
-      "skills.s7t":"JavaScript / TypeScript","skills.s7p":"Dinamik interfeyslar, dastur mantig'i va zamonaviy web-ilovalar.",
-      "skills.s8t":"Python","skills.s8p":"Skript, avtomatlashtirish va ma'lumotlar bilan ishlash.",
-      "skills.s9t":"C / C++","skills.s9p":"Yuqori samarali dasturlar va tizimlar bilan ishlash.",
       "services.kicker":"Services / Xizmatlar","services.title1":"Nimalar","services.title2":"qila olaman?","services.right":"Men bilan ishlab, sifatli natija olasiz.",
       "services.s1t":"Web-sayt yaratish","services.s1p":"Chiroyli, tezkor va zamonaviy shaxsiy yoki biznes web-saytlar.",
       "services.s2t":"Telegram bot","services.s2p":"Buyurtma, javob berish va avtomatlashtirish botlari.",
@@ -1433,7 +1341,7 @@
       "ratings.count":"baxo","ratings.empty":"Hali baxo yo'q — birinchi bo'lib baholang!"
     },
     en: {
-      "nav.home":"Home","nav.about":"About","nav.skills":"Skills","nav.services":"Services",
+      "nav.home":"Home","nav.about":"About","nav.services":"Services",
       "nav.projects":"Projects","nav.certs":"Certificates","nav.contact":"Contact",
       "nav.cta":"Contact me",
       "skip":"Skip to main content",
@@ -1455,15 +1363,6 @@
       "feat.f2t":"Reliability","feat.f2p":"Always online, always responsive.",
       "feat.f3t":"Precision","feat.f3p":"I understand the requirement and build exactly what is needed.",
       "feat.f4t":"Growth","feat.f4p":"I learn a new technology every day.",
-      "skills.kicker":"Skills / Qobiliyat","skills.title1":"Where am","skills.title2":"I strong?","skills.right":"Practical knowledge and experience in every area.",
-      "skills.level":"Level","skills.s1t":"Frontend","skills.s1p":"HTML, CSS, JavaScript — beautiful and fast interfaces.",
-      "skills.s2t":"Backend","skills.s2p":"Managing server, logic and requests.",
-      "skills.s3p":"Strong knowledge and practice in Java.",
-      "skills.s4t":"Database","skills.s4p":"Databases and queries.",
-      "skills.s5p":"REST API and integrations.",
-      "skills.s7t":"JavaScript / TypeScript","skills.s7p":"Dynamic interfaces, program logic and modern web apps.",
-      "skills.s8t":"Python","skills.s8p":"Scripting, automation and working with data.",
-      "skills.s9t":"C / C++","skills.s9p":"High-performance programs and systems.",
       "services.kicker":"Services / Xizmatlar","services.title1":"What","services.title2":"can I do?","services.right":"Working with me brings quality results.",
       "services.s1t":"Website creation","services.s1p":"Beautiful, fast and modern personal or business sites.",
       "services.s2t":"Telegram bot","services.s2p":"Ordering, replying and automation bots.",
@@ -1501,7 +1400,7 @@
       "ratings.count":"ratings","ratings.empty":"No ratings yet — be the first!"
     },
     ru: {
-      "nav.home":"Главная","nav.about":"Обо мне","nav.skills":"Навыки","nav.services":"Услуги",
+      "nav.home":"Главная","nav.about":"Обо мне","nav.services":"Услуги",
       "nav.projects":"Проекты","nav.certs":"Сертификаты","nav.contact":"Контакты",
       "nav.cta":"Связаться",
       "skip":"Перейти к основному контенту",
@@ -1523,15 +1422,6 @@
       "feat.f2t":"Надёжность","feat.f2p":"Всегда на связи, всегда отвечаю.",
       "feat.f3t":"Точность","feat.f3p":"Понимаю задачу и делаю именно то, что нужно.",
       "feat.f4t":"Рост","feat.f4p":"Каждый день учу новую технологию.",
-      "skills.kicker":"Навыки","skills.title1":"В чём я","skills.title2":"силён?","skills.right":"Практические знания и опыт в каждой области.",
-      "skills.level":"Уровень","skills.s1t":"Frontend","skills.s1p":"HTML, CSS, JavaScript — красивые и быстрые интерфейсы.",
-      "skills.s2t":"Backend","skills.s2p":"Управление сервером, логикой и запросами.",
-      "skills.s3p":"Прочные знания и практика в Java.",
-      "skills.s4t":"Базы данных","skills.s4p":"Базы данных и запросы.",
-      "skills.s5p":"REST API и интеграции.",
-      "skills.s7t":"JavaScript / TypeScript","skills.s7p":"Динамические интерфейсы, логика программ и современные веб-приложения.",
-      "skills.s8t":"Python","skills.s8p":"Скрипты, автоматизация и работа с данными.",
-      "skills.s9t":"C / C++","skills.s9p":"Высокопроизводительные программы и системы.",
       "services.kicker":"Услуги","services.title1":"Что я","services.title2":"могу сделать?","services.right":"Работая со мной, вы получите качественный результат.",
       "services.s1t":"Создание сайтов","services.s1p":"Красивые, быстрые и современные личные или бизнес-сайты.",
       "services.s2t":"Telegram бот","services.s2p":"Боты для заказов, ответов и автоматизации.",
@@ -1727,7 +1617,7 @@
   var nav = document.querySelector("nav");
   var prog = document.getElementById("progress");
   var links = document.querySelectorAll(".menu a");
-  var secs = ["home", "about", "skills", "services", "process", "projects", "certs", "contact"];
+  var secs = ["home", "about", "services", "process", "projects", "certs", "contact"];
   function onScroll() {
     toTop.classList.toggle("show", window.scrollY > 320);
     nav.classList.toggle("scrolled", window.scrollY > 60);
@@ -1767,16 +1657,12 @@
       requestAnimationFrame(step);
     });
   }
-  function runBars() {
-    document.querySelectorAll("#skills .bar i").forEach(function (b) { b.classList.add("go"); });
-  }
 
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
           e.target.classList.add("in");
-          if (e.target.id === "skills") runBars();
           io.unobserve(e.target);
         }
       });
@@ -1784,7 +1670,6 @@
     document.querySelectorAll("section, .stripe").forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-    runBars();
   }
 
   var cnt = document.querySelector(".stripe");
@@ -2121,7 +2006,7 @@
       });
       mLinks.forEach(function (a) {
         a.classList.toggle("active", a.getAttribute("href") === "#" + cur ||
-          (cur === "about" || cur === "skills" || cur === "process" ? a.getAttribute("href") === "#services" : false));
+          (cur === "about" || cur === "process" ? a.getAttribute("href") === "#services" : false));
       });
     });
   }
@@ -2879,7 +2764,6 @@ window.addEventListener("load", function () {
     if (hasNav(/sertifikat|certificat|credentials|diplom/)) return "certs";
     if (hasNav(/aloqa|bog'lan|contact|telegram|email|xabar|pismo/)) return "contact";
     if (hasNav(/loyiha|loyhalar|project|projects/)) return "projects";
-    if (hasNav(/mahorat|skill|skills|til(lar)?|know/)) return "skills";
     if (hasNav(/xizmat|service|buyurtma/)) return "services";
     if (hasNav(/haqimda|about|o'zi|biografiya/)) return "about";
     if (hasNav(/bosh|home|yuqori|asion/)) return "home";
@@ -2998,7 +2882,6 @@ window.addEventListener("load", function () {
 
   var ITEMS = [
     { t: "Haqimda", i: "i-user", k: "about men profile bio haqida", go: "about" },
-    { t: "Mahorat", i: "i-zap", k: "skills texnologiya stack mahorat", go: "skills" },
     { t: "Xizmatlar", i: "i-briefcase", k: "services xizmat buyurtma narx", go: "services" },
     { t: "Jarayon", i: "i-gear", k: "process qanday ishlaydi bosqich", go: "process" },
     { t: "Loyihalar", i: "i-grid", k: "projects loyiha ishlar portfolio", go: "projects" },
